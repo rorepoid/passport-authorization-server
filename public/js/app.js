@@ -1924,9 +1924,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
+    axios.get("/oauth/clients").then(function (response) {
+      console.log(response.data);
+    });
   }
 });
 
@@ -7268,7 +7294,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.action-link[data-v-397d14ca] {\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".action-link[data-v-397d14ca] {\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -7287,7 +7313,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.action-link[data-v-1552a5b6] {\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".action-link[data-v-1552a5b6] {\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -7306,7 +7332,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.action-link[data-v-49962cc0] {\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".action-link[data-v-49962cc0] {\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -38838,29 +38864,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "max-w-md w-full lg:flex" }, [
+    _c("div", {
+      staticClass:
+        "h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden",
+      staticStyle: {
+        "background-image":
+          "url('https://pdc.is/wp-content/uploads/2017/11/web-app-development.jpg')"
+      },
+      attrs: { title: "OAuth Clients" }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+      },
+      [
+        _c("div", { staticClass: "mb-8" }, [
+          _c("p", { staticClass: "text-sm text-grey-dark flex items-center" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "text-grey w-3 h-3 mr-2",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 20 20"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z"
+                  }
+                })
+              ]
+            ),
+            _vm._v("\n        Admins only\n      ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex text-black font-bold text-xl mb-2" }, [
+            _vm._v("Personal Access Tokens")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "flex" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-center w-32 mx-2 cursor-pointer button bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded",
+          attrs: { "data-toggle": "modal", "data-target": "firstModal" }
+        },
+        [_vm._v("Ver Lista")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-center w-32 mx-2 cursor-pointer button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        },
+        [_vm._v("Nuevo +")]
+      )
     ])
   }
 ]
