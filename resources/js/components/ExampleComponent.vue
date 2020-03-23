@@ -18,6 +18,10 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+            axios.get('/oauth/clients')
+            .then(response => {
+                console.log(response.data);
+            });
         }
     }
 </script>
