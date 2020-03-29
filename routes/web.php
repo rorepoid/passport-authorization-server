@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Passport\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('clients', function() {
+    return redirect()->action(
+        ClientController::forUser()
+    );
+});
