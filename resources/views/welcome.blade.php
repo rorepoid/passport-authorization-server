@@ -8,7 +8,12 @@
 
         <!-- Favicon -->
         <link rel="icon" href="{{ asset('favicon.jpeg') }}" type="image/x-icon"/>
+
+        <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     </head>
     <body>
@@ -119,5 +124,9 @@
           </div>
         </nav>
       </div>
+      <div id="app" class="mt-32">
+        <passport-clients></passport-clients>
+        <passport-authorized-clients></passport-authorized-clients>
+        <passport-personal-access-tokens></passport-personal-access-tokens></div>
     </body>
 </html>
