@@ -14,7 +14,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
     </head>
     <body>
       <div>
@@ -124,6 +124,47 @@
           </div>
         </nav>
       </div>
+
+
+
+      <div class="mt-32">
+        <div x-data="{ open: false }">
+            <button @click="open = true">Open Dropdown</button>
+            <ul
+                x-show="open"
+                @click.away="open = false"
+            >
+                Dropdown Body
+            </ul>
+        </div>
+
+        <div x-data="{ tab: 'foo' }">
+            <button :class="{ 'active': tab === 'foo' }" @click="tab = 'foo'">Foo</button>
+            <button :class="{ 'active': tab === 'bar' }" @click="tab = 'bar'">Bar</button>
+
+            <div x-show="tab === 'foo'">Tab Foo</div>
+            <div x-show="tab === 'bar'">Tab Bar</div>
+        </div>
+
+        <div x-data="{ open: false }">
+            <button
+                @mouseenter.once="
+                    fetch('/home')
+                        .then(response => response.text())
+                        .then(html => { $refs.dropdown.innerHTML = html })
+                "
+                @click="open = true"
+            >Show Dropdown</button>
+
+            <div x-ref="dropdown" x-show="open" @click.away="open = false">
+                Loading Spinner...
+            </div>
+        </div>
+      </div>
+
+
+
+
       <div id="app" class="mt-32">
         <passport-clients></passport-clients>
         <passport-authorized-clients></passport-authorized-clients>
