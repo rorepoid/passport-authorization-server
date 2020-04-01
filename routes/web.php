@@ -22,6 +22,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::livewire('livewire', 'oauth-clients');
+
 Route::get('clients', function() {
     return redirect()->action(
         ClientController::forUser()

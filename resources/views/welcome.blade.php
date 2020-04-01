@@ -163,6 +163,9 @@
       </div>
 
 
+      <a href="/livewire" class="text-center w-32 mx-2 cursor-pointer button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Livewire Route
+      </a>
 
 
       <div id="app" class="mt-32">
