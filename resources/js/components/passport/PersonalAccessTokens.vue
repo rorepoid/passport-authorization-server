@@ -7,46 +7,54 @@
 <template>
     <div>
         <div>
-            <div class="card card-default">
-                <div class="card-header">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>
-                            Personal Access Tokens
-                        </span>
-
-                        <a class="action-link" tabindex="-1" @click="showCreateTokenForm">
-                            Create New Token
-                        </a>
+            <div class="lg:w-1/2">
+                <div class="bg-blue-700 p-3 rounded-t-md">
+                    <div >
+                        <div class="grid sm:grid-cols-2">
+                            <div class="col-span-1 flex flex-row">
+                                <span class="text-white text-xl w-full sm:w-auto text-center font-bold">
+                                    Personal Access Tokens
+                                </span>
+                            </div>
+                            <div class="col-span-1 flex sm:flex-row-reverse">
+                                <button
+                                class="flex-row-reverse w-full sm:w-auto text-white bg-green-700 p-2 rounded-md border-black"
+                                tabindex="-1"
+                                @click="showCreateTokenForm">
+                                    Create New Token
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card-body">
+                <div class="bg-gray-300 p-3 rounded-b-md">
                     <!-- No Tokens Notice -->
-                    <p class="mb-0" v-if="tokens.length === 0">
+                    <p v-if="tokens.length === 0">
                         You have not created any personal access tokens.
                     </p>
 
                     <!-- Personal Access Tokens -->
-                    <table class="table table-borderless mb-0" v-if="tokens.length > 0">
+                    <table class="w-full" v-if="tokens.length > 0">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th></th>
+                                <th class="px-4 py-2">Name</th>
+                                <th class="px-4 py-2">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr v-for="token in tokens">
+                            <tr v-for="token in tokens" class="bg-gray-400 border-8 border-gray-600">
                                 <!-- Client Name -->
-                                <td style="vertical-align: middle;">
+                                <td class="text-lg px-4 py-2">
                                     {{ token.name }}
                                 </td>
 
                                 <!-- Delete Button -->
-                                <td style="vertical-align: middle;">
-                                    <a class="action-link text-danger" @click="revoke(token)">
+                                <td class="px-4 py-2">
+                                    <button class="bg-red-700 rounded px-3 text-white" @click="revoke(token)">
                                         Delete
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>

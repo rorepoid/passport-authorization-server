@@ -127,7 +127,7 @@
 
 
 
-      <div class="mt-32">
+      <!-- <div class="mt-32">
         <div x-data="{ open: false }">
             <button @click="open = true">Open Dropdown</button>
             <ul
@@ -165,12 +165,12 @@
 
       <a href="/livewire" class="text-center w-32 mx-2 cursor-pointer button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Livewire Route
-      </a>
+      </a> -->
 
 
       <div id="app" class="mt-32">
-        <passport-clients></passport-clients>
-        <passport-authorized-clients></passport-authorized-clients>
+        <!-- <passport-clients></passport-clients> -->
+        <!-- <passport-authorized-clients></passport-authorized-clients> -->
         <passport-personal-access-tokens></passport-personal-access-tokens></div>
     </body>
 </html>

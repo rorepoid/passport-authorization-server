@@ -2611,6 +2611,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   /*
    * The component's data.
@@ -39712,44 +39720,39 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", [
-      _c("div", { staticClass: "card card-default" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c(
-            "div",
-            {
-              staticStyle: {
-                display: "flex",
-                "justify-content": "space-between",
-                "align-items": "center"
-              }
-            },
-            [
-              _c("span", [
-                _vm._v(
-                  "\n                        Personal Access Tokens\n                    "
-                )
-              ]),
+      _c("div", { staticClass: "lg:w-1/2" }, [
+        _c("div", { staticClass: "bg-blue-700 p-3 rounded-t-md" }, [
+          _c("div", [
+            _c("div", { staticClass: "grid sm:grid-cols-2" }, [
+              _vm._m(0),
               _vm._v(" "),
               _c(
-                "a",
-                {
-                  staticClass: "action-link",
-                  attrs: { tabindex: "-1" },
-                  on: { click: _vm.showCreateTokenForm }
-                },
+                "div",
+                { staticClass: "col-span-1 flex sm:flex-row-reverse" },
                 [
-                  _vm._v(
-                    "\n                        Create New Token\n                    "
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "flex-row-reverse w-full sm:w-auto text-white bg-green-700 p-2 rounded-md border-black",
+                      attrs: { tabindex: "-1" },
+                      on: { click: _vm.showCreateTokenForm }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Create New Token\n                            "
+                      )
+                    ]
                   )
                 ]
               )
-            ]
-          )
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "bg-gray-300 p-3 rounded-b-md" }, [
           _vm.tokens.length === 0
-            ? _c("p", { staticClass: "mb-0" }, [
+            ? _c("p", [
                 _vm._v(
                   "\n                    You have not created any personal access tokens.\n                "
                 )
@@ -39757,33 +39760,29 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.tokens.length > 0
-            ? _c("table", { staticClass: "table table-borderless mb-0" }, [
-                _vm._m(0),
+            ? _c("table", { staticClass: "w-full" }, [
+                _vm._m(1),
                 _vm._v(" "),
                 _c(
                   "tbody",
                   _vm._l(_vm.tokens, function(token) {
-                    return _c("tr", [
-                      _c(
-                        "td",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
+                    return _c(
+                      "tr",
+                      { staticClass: "bg-gray-400 border-8 border-gray-600" },
+                      [
+                        _c("td", { staticClass: "text-lg px-4 py-2" }, [
                           _vm._v(
                             "\n                                " +
                               _vm._s(token.name) +
                               "\n                            "
                           )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-4 py-2" }, [
                           _c(
-                            "a",
+                            "button",
                             {
-                              staticClass: "action-link text-danger",
+                              staticClass: "bg-red-700 rounded px-3 text-white",
                               on: {
                                 click: function($event) {
                                   return _vm.revoke(token)
@@ -39796,9 +39795,9 @@ var render = function() {
                               )
                             ]
                           )
-                        ]
-                      )
-                    ])
+                        ])
+                      ]
+                    )
                   }),
                   0
                 )
@@ -39817,12 +39816,12 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(1),
+            _vm._m(2),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _vm.form.errors.length > 0
                 ? _c("div", { staticClass: "alert alert-danger" }, [
-                    _vm._m(2),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
@@ -39969,7 +39968,7 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(3),
+            _vm._m(4),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("p", [
@@ -39985,7 +39984,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(4)
+            _vm._m(5)
           ])
         ])
       ]
@@ -39997,8 +39996,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-span-1 flex flex-row" }, [
+      _c(
+        "span",
+        {
+          staticClass:
+            "text-white text-xl w-full sm:w-auto text-center font-bold"
+        },
+        [
+          _vm._v(
+            "\n                                Personal Access Tokens\n                            "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", [_c("th", [_vm._v("Name")]), _vm._v(" "), _c("th")])
+      _c("tr", [
+        _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Action")])
+      ])
     ])
   },
   function() {
