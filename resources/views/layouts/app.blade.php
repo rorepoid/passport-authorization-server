@@ -28,8 +28,11 @@
     </div>
 
     <livewire:nav-bar>
+
     <main class="">
         @yield('content')
     </main>
+
+    <livewire:scripts>
 </body>
 </html>
