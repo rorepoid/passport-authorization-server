@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::livewire('livewire', 'oauth-clients');
+Route::livewire('users', 'user.users');
 
 Route::get('clients', function() {
     return redirect()->action(
