@@ -23,10 +23,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::livewire('users', 'user.users');
-Route::livewire('profile', 'profile');
-
-Route::get('clients', function() {
-    return redirect()->action(
-        ClientController::forUser()
-    );
-});
+Route::livewire('profile', 'profile.profile')->name('profile');
+Route::livewire('profile/edit', 'profile.edit-profile')->name('profile.edit');

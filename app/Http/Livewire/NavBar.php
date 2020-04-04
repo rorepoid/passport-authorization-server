@@ -15,6 +15,6 @@ class NavBar extends Component
 
     public function goToProfile()
     {
-        return redirect()->to('/profile');
+        return redirect()->route('profile');
     }
 }
