@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('api/uploadPhoto', 'PhotoUploadController@store')->name('home');
 
 Route::livewire('users', 'user.users');
 Route::livewire('profile', 'profile.profile')->name('profile');
