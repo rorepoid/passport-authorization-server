@@ -23,13 +23,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-300">
+<body class="bg-gray-300 w-screen h-screen">
     <div id="app">
     </div>
 
     <livewire:nav-bar>
 
-    <main class="">
+    <main class="w-full h-full">
         @yield('content')
     </main>
 
