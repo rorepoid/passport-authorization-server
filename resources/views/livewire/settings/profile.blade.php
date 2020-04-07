@@ -1,115 +1,71 @@
-<div>
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-
-<div class="container max-w-full mx-auto md:py-24 px-6">
-  <div class="max-w-sm mx-auto px-6">
-        <div class="relative flex flex-wrap">
-            <div class="w-full relative">
-                <div class="md:mt-6">
-                    <div class="text-center font-semibold text-black">
-                        Lorem ipsum dolor
-                    </div>
-                    <div class="text-center font-base text-black">
-                        Sed ut perspiciatis unde?
-                    </div>
-                    <form class="mt-8" x-data="{password: '',password_confirm: ''}">
-                        <div class="mx-auto max-w-lg ">
-                            <div class="py-1">
-                                <span class="px-1 text-sm text-gray-600">Username</span>
-                                <input placeholder="" type="text"
-                                       class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                            </div>
-                            <div class="py-1">
-                                <span class="px-1 text-sm text-gray-600">Email</span>
-                                <input placeholder="" type="email"
-                                       class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                            </div>
-                            <div class="py-1">
-                                <span class="px-1 text-sm text-gray-600">Password</span>
-                                <input placeholder="" type="password" x-model="password"
-                                       class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                            </div>
-                            <div class="py-1">
-                                <span class="px-1 text-sm text-gray-600">Password Confirm</span>
-                                <input placeholder="" type="password" x-model="password_confirm"
-                                       class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                            </div>
-                            <div class="flex justify-start mt-3 ml-4 p-1">
-                                <ul>
-                                    <li class="flex items-center py-1">
-                                        <div :class="{'bg-green-200 text-green-700': password == password_confirm && password.length > 0, 'bg-red-200 text-red-700':password != password_confirm || password.length == 0}"
-                                             class=" rounded-full p-1 fill-current ">
-                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path x-show="password == password_confirm && password.length > 0" stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="2"
-                                                      d="M5 13l4 4L19 7"/>
-                                                <path x-show="password != password_confirm || password.length == 0" stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="2"
-                                                      d="M6 18L18 6M6 6l12 12"/>
-
-                                            </svg>
-                                        </div>
-                                        <span :class="{'text-green-700': password == password_confirm && password.length > 0, 'text-red-700':password != password_confirm || password.length == 0}"
-                                              class="font-medium text-sm ml-3"
-                                              x-text="password == password_confirm && password.length > 0 ? 'Passwords match' : 'Passwords do not match' "></span>
-                                    </li>
-                                    <li class="flex items-center py-1">
-                                        <div :class="{'bg-green-200 text-green-700': password.length > 7, 'bg-red-200 text-red-700':password.length < 7 }"
-                                             class=" rounded-full p-1 fill-current ">
-                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path x-show="password.length > 7" stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="2"
-                                                      d="M5 13l4 4L19 7"/>
-                                                <path x-show="password.length < 7" stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="2"
-                                                      d="M6 18L18 6M6 6l12 12"/>
-
-                                            </svg>
-                                        </div>
-                                        <span :class="{'text-green-700': password.length > 7, 'text-red-700':password.length < 7 }"
-                                              class="font-medium text-sm ml-3"
-                                              x-text="password.length > 7 ? 'The minimum length is reached' : 'At least 8 characters required' "></span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="flex justify-start">
-                                <label class="block text-gray-500 font-bold my-4 flex items-center">
-                                    <input class="leading-loose text-pink-600 top-0" type="checkbox"/>
-                                    <span class="ml-2 text-sm py-2 text-gray-600 text-left">Accept the
-                                          <a href="#"
-                                             class="font-semibold text-black border-b-2 border-gray-200 hover:border-gray-500">
-                                           Terms and Conditions of the site
-                                          </a>and
-                                          <a href="#"
-                                             class="font-semibold text-black border-b-2 border-gray-200 hover:border-gray-500">
-                                            the information data policy.</a>
-                                    </span>
-                                </label>
-                            </div>
-                            <button class="mt-3 text-lg font-semibold
-            bg-gray-800 w-full text-white rounded-lg
-            px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
-                                Register
-                            </button>
-                        </div>
-                    </form>
-
-                    <div class="text-sm font-semibold block sm:hidden py-6 flex justify-center">
-                        <a href="#"
-                           class="text-black font-normal border-b-2 border-gray-200 hover:border-teal-500">You're already member?
-                            <span class="text-black font-semibold">
-            Login
-          </span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
+<div x-show.transition.in="step === 1">
+    <div class="mb-5 text-center">
+        <div class="mx-auto w-32 h-32 mb-2 border rounded-full bg-gray-100 mb-4 shadow-inset">
+            <img id="image" class="object-cover w-full h-32 rounded-full" src="{{ $photo_src }}" alt=""/>
         </div>
+        <form enctype="multipart/form-data">
+        @csrf
+            <label for="fileInput" type="button" class="max-w-sm cursor-pointer inine-flex justify-between items-center focus:outline-none border py-2 px-4 rounded-lg shadow-sm text-left text-gray-600 bg-white hover:bg-gray-100 font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline-flex flex-shrink-0 w-6 h-6 -mt-1 mr-1" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+                    <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+                    <circle cx="12" cy="13" r="3" />
+                </svg>
+            <input
+                class="cursor-pointer absolute hidden opacity-0 pin-r pin-t"
+                name="photo"
+                accept="image/*"
+                type="file"
+                id="fileInput"
+                @change="let file = document.getElementById('fileInput').files[0];
+                var reader = new FileReader();
+                reader.onload = (e) => image = e.target.result;
+                reader.readAsDataURL(file);">
+                Browse Photo
+            </label>
+
+            <div class="mx-auto w-48 text-xs text-center mt-1">
+                <button type="submit">Save Contact</button>
+            </div>
+        </form>
     </div>
+
+    <div class="mb-5">
+        <label for="firstname" class="font-bold mb-1 text-gray-700 block">Firstname</label>
+        <input
+            type="text"
+            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+            placeholder="Enter your firstname...">
+    </div>
+
+    <div class="mb-5">
+        <label for="email" class="font-bold mb-1 text-gray-700 block">Email</label>
+        <input type="email"
+            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+            placeholder="Enter your email address...">
+    </div>
+
 </div>
-</div>
+
+<script>
+    var photoInput = document.getElementById('fileInput');
+    photoInput.addEventListener('input', () => {
+        var file = photoInput.files[0];
+    let formData = new FormData();
+        formData.append('file', file);
+        formData.append('_token', '{{ csrf_token() }}');
+        axios.post('/api/uploadPhoto',
+            formData,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                }
+            }
+        ).then(response => {
+            url = response.data.url;
+            console.log(url);
+            livewire.emit('updatePhoto', url);
+        })
+    });
+</script>
