@@ -23,7 +23,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-300 w-screen h-screen">
+<body class="@yield('background', 'bg-gray-300') w-screen h-screen overflow-x-hidden">
     <div id="app">
     </div>
 
