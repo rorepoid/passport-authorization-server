@@ -27,8 +27,8 @@ Route::redirect('settings', 'profile');
 Route::livewire('users', 'user.users');
 Route::livewire('profile', 'profile.profile')->name('profile');
 
-Route::livewire('settings/profile', 'settings.profile')
-    ->layout('layouts.settings')
-    ->section('setting')
-    ->name('settings.profile');
-Route::livewire('settings/account', 'settings.account')->name('settings.account');
+
+Route::group(['layout' => 'layouts.settings', 'section' => 'setting'], function () {
+    Route::livewire('settings/profile', 'settings.profile')->name('settings.profile');
+    Route::livewire('settings/account', 'settings.account')->name('settings.account');
+});
