@@ -31,6 +31,20 @@
     </div>
 
     <div class="mb-5">
+        <label for="username" class="font-bold mb-1 text-gray-700 block">Username</label>
+        <input
+            wire:model="username"
+            x-data
+            x-on:keyup="console.log($event.target.value)"
+            wire:keydown="validateIfUsernameAlreadyExists"
+            type="text"
+            name="username"
+            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+            placeholder="Enter your username...">
+        @error('username') <span class="error">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="mb-5">
         <label for="firstname" class="font-bold mb-1 text-gray-700 block">Firstname</label>
         <input
             type="text"
