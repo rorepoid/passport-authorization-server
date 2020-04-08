@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('background', 'bg-blue-700')
+@section('background', 'bg-blue-800')
 @section('content')
 <div class="h-full">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-    <div class="bg-blue-700 h-full md:p-10 flex flex-wrap sys-app-notCollapsed ">
+    <div class="bg-blue-800 h-full md:p-10 flex flex-wrap sys-app-notCollapsed ">
         <div class="w-full h-full flex flex-wrap md:flex-col">
             <div class="sm:py-4 w-64 sm:h-auto ">
                 <div x-data="{ hidden: true }">
