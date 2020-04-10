@@ -18,7 +18,7 @@ Route::middleware(['auth'])->group(function () {
         return view('welcome');
     });
 
-    Route::post('api/uploadPhoto', 'PhotoUploadController@store')->name('home');
+    Route::post('api/avatar', 'AvatarController@store')->name('avatar.store');
 
     Route::livewire('users', 'user.users');
     Route::livewire('profile', 'profile.profile')->name('profile');

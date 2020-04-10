@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Profile extends Component
 {
-    protected $listeners = ['updatePhoto' => 'refreshPhoto'];
+    protected $listeners = ['updateAvatar' => 'refreshAvatar'];
 
     public $username;
 
@@ -18,7 +18,7 @@ class Profile extends Component
         return view('livewire.settings.profile');
     }
 
-    public function refreshPhoto($url, $photo)
+    public function refreshAvatar($url, $photo)
     {
         $this->photo_src = $photo;
     }

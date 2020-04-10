@@ -64,11 +64,11 @@
 <script>
     var photoInput = document.getElementById('fileInput');
     photoInput.addEventListener('input', () => {
-        var file = photoInput.files[0];
+        var avatar = photoInput.files[0];
     let formData = new FormData();
-        formData.append('file', file);
+        formData.append('avatar', avatar);
         formData.append('_token', '{{ csrf_token() }}');
-        axios.post('/api/uploadPhoto',
+        axios.post('/api/avatar',
             formData,
             {
                 headers: {
@@ -79,7 +79,7 @@
         ).then(response => {
             url = response.data.url;
             console.log(url);
-            livewire.emit('updatePhoto', url);
+            livewire.emit('updateAvatar', url);
         })
     });
 </script>
