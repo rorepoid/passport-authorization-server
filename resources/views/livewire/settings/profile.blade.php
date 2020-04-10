@@ -1,7 +1,7 @@
 <div x-show.transition.in="step === 1">
     <div class="mb-5 text-center">
         <div class="mx-auto w-32 h-32 mb-2 border rounded-full bg-gray-100 mb-4 shadow-inset">
-            <img id="image" class="object-cover w-full h-32 rounded-full" src="{{ $photo_src }}" alt=""/>
+            <img id="image" class="object-cover w-full h-32 rounded-full" src="{{ $avatar }}" alt=""/>
         </div>
         <form enctype="multipart/form-data">
         @csrf
@@ -13,7 +13,7 @@
                 </svg>
             <input
                 class="cursor-pointer absolute hidden opacity-0 pin-r pin-t"
-                name="photo"
+                name="avatar"
                 accept="image/*"
                 type="file"
                 id="fileInput"
@@ -32,16 +32,16 @@
 
     <div class="mb-5">
         <label for="username" class="font-bold mb-1 text-gray-700 block">Username</label>
+            <!-- wire:keydown="validateIfUsernameAlreadyExists" -->
+            <!-- x-on:keyup="if ($event.target.value.length >= 4) livewire.emit('changeUsername', $event.target.value)" -->
         <input
-            wire:model="username"
             x-data
-            x-on:keyup="console.log($event.target.value)"
-            wire:keydown="validateIfUsernameAlreadyExists"
+            wire:model="username"
             type="text"
             name="username"
             class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
             placeholder="Enter your username...">
-        @error('username') <span class="error">{{ $message }}</span> @enderror
+        @error('username') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
     </div>
 
     <div class="mb-5">
