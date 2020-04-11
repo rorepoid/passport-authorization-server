@@ -23,42 +23,44 @@
                 reader.readAsDataURL(file);">
                 Browse Photo
             </label>
-
-            <div class="mx-auto w-48 text-xs text-center mt-1">
-                <button type="submit">Save Contact</button>
-            </div>
         </form>
     </div>
+    <div class="md:border-gray-600 md:border-2 md:border-r-0 md:border-l-0 md:py-4 px-2">
+    <div class="grid md:grid-cols-2">
+        <div class="mb-2 md:mx-2">
+            <label for="username" class="font-bold mb-1 text-gray-700 block">Username</label>
+            <input
+                wire:model="user.username"
+                type="text"
+                name="username"
+                class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
+                placeholder="Enter your username...">
+            @error('user.username') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
+        </div>
+        <div class="mb-2 md:mx-2">
+            <label for="name" class="font-bold mb-1 text-gray-700 block">Name</label>
+            <input
+                type="text"
+                value="{{ $user['name'] }}"
+                class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
+                placeholder="Enter your name... ">
+        </div>
 
-    <div class="mb-5">
-        <label for="username" class="font-bold mb-1 text-gray-700 block">Username</label>
-        <input
-            wire:model="user.username"
-            type="text"
-            name="username"
-            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
-            placeholder="Enter your username...">
-        @error('user.username') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
-    </div>
-    <div class="mb-5">
-        <label for="name" class="font-bold mb-1 text-gray-700 block">Name</label>
-        <input
-            type="text"
-            value="{{ $user['name'] }}"
-            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
-            placeholder="Enter your name... ">
-    </div>
+        <div class="mb-2 md:mx-2">
+            <label for="email" class="font-bold mb-1 text-gray-700 block">Email</label>
+            <input
+                type="email"
+                wire:model="user.email"
+                class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
+                placeholder="Enter your email address...">
+            @error('user.email') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
+        </div>
 
-    <div class="mb-5">
-        <label for="email" class="font-bold mb-1 text-gray-700 block">Email</label>
-        <input
-            type="email"
-            wire:model="user.email"
-            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
-            placeholder="Enter your email address...">
-        @error('user.email') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
     </div>
-
+    <div class="mt-2 w-full">
+        <button class="w-2/4 sm:w-32 bg-green-700 rounded-lg p-2 mx-2 text-white font-bold">Save changes</button>
+    </div>
+</div>
 </div>
 
 <script>
