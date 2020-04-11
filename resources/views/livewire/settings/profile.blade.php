@@ -32,31 +32,31 @@
 
     <div class="mb-5">
         <label for="username" class="font-bold mb-1 text-gray-700 block">Username</label>
-            <!-- wire:keydown="validateIfUsernameAlreadyExists" -->
-            <!-- x-on:keyup="if ($event.target.value.length >= 4) livewire.emit('changeUsername', $event.target.value)" -->
         <input
-            x-data
-            wire:model="username"
+            wire:model="user.username"
             type="text"
             name="username"
-            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
             placeholder="Enter your username...">
-        @error('username') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
+        @error('user.username') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
     </div>
-
     <div class="mb-5">
-        <label for="firstname" class="font-bold mb-1 text-gray-700 block">Firstname</label>
+        <label for="name" class="font-bold mb-1 text-gray-700 block">Name</label>
         <input
             type="text"
-            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-            placeholder="Enter your firstname...">
+            value="{{ $user['name'] }}"
+            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
+            placeholder="Enter your name... ">
     </div>
 
     <div class="mb-5">
         <label for="email" class="font-bold mb-1 text-gray-700 block">Email</label>
-        <input type="email"
-            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+        <input
+            type="email"
+            wire:model="user.email"
+            class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
             placeholder="Enter your email address...">
+        @error('user.email') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
     </div>
 
 </div>
