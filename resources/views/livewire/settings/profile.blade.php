@@ -1,7 +1,7 @@
 <div x-show.transition.in="step === 1">
     <div class="mb-5 text-center">
         <div class="mx-auto w-32 h-32 mb-2 border rounded-full bg-gray-100 mb-4 shadow-inset">
-            <img id="image" class="object-cover w-full h-32 rounded-full" src="{{ $avatar }}" alt=""/>
+            <img id="image" class="object-cover w-full h-32 rounded-full" src="{{ $user['avatar'] }}" alt=""/>
         </div>
         <form enctype="multipart/form-data">
         @csrf

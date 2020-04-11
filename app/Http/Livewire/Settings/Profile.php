@@ -3,12 +3,12 @@
 namespace App\Http\Livewire\Settings;
 
 use Livewire\Component;
+use Storage;
 
 class Profile extends Component
 {
 
     public $user;
-    public $avatar = 'https://vignette.wikia.nocookie.net/spiceandwolf/images/4/43/Horo.jpg/revision/latest?cb=20100410062559';
 
     protected $listeners = [
         'updateAvatar'      => 'refreshAvatar',
@@ -34,6 +34,6 @@ class Profile extends Component
 
     public function refreshAvatar($url, $avatar)
     {
-        $this->avatar = $avatar;
+        $this->user['avatar'] = $avatar;
     }
 }

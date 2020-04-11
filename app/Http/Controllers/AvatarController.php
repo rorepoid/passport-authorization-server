@@ -12,7 +12,9 @@ class AvatarController extends Controller
         $photo = $request->file('avatar')->store(
             "avatars/u/{$request->user()->id}", 'public'
         );
-
+        auth()->user()->update(
+            ['avatar' => Storage::url($photo)]
+        );
         return response()->json([
             'url' => Storage::url($photo)
         ]);
