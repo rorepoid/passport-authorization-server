@@ -12,23 +12,27 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $john = User::create([
             'username' => 'john_doe',
             'name' => 'John Doe',
             'email' => 'johndoe@example.com',
             'password' => bcrypt('secret'),
         ]);
-        User::create([
+        $nat = User::create([
             'username' => 'nat',
             'name' => 'Nat Friedman',
             'email' => 'nat@github.com',
             'password' => bcrypt('secret'),
         ]);
-        User::create([
+        $nobuo = User::create([
             'username' => 'nobuo',
             'name' => 'Nobuo Kawakami',
             'email' => 'nobuo@niconico.com',
             'password' => bcrypt('secret'),
         ]);
+
+        $john->givePermissionTo('sites');
+        $nat->givePermissionTo('sites');
+        $nobuo->givePermissionTo('sites');
     }
 }

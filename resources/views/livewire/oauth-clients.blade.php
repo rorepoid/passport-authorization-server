@@ -1,4 +1,5 @@
 <div class="max-w-md w-full lg:flex">
+@can('see clients')
     <div
         class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
         style="background-image: url('https://pdc.is/wp-content/uploads/2017/11/web-app-development.jpg')"
@@ -23,4 +24,5 @@
         </button>
         <!-- {{$clients}} -->
     </div>
+@endcan
 </div>
