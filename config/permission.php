@@ -96,7 +96,7 @@ return [
      * By default wildcard permission lookups are disabled.
      */
 
-    'enable_wildcard_permission' => false,
+    'enable_wildcard_permission' => true,
 
     'cache' => [
 
