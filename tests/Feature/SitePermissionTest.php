@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\User;
+use App\Site;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Spatie\Permission\Models\Permission;
@@ -35,5 +36,26 @@ class SitePermissionTest extends TestCase
         // assert false
         $this->assertFalse($john->can('anotherresource.view.1'));
         $this->assertFalse($john->can('sites.anotheraction.aaaaaa'));
+    }
+
+    /**
+     * User can only create one specific site.
+     *
+     * @return void
+     */
+    public function testUserHasPermissionToOnlyCreateOneSite()
+    {
+        $john = factory(User::class)->create();
+        $site1 = factory(Site::class)->create();
+        $site2 = factory(Site::class)->create();
+
+        Permission::create(['name' => "sites.create.{$site1->id}"]);
+        $john->givePermissionTo("sites.create.{$site1->id}");
+        $this->assertTrue($john->can("sites.create.{$site1->id}"));
+
+        $this->assertFalse($john->can("sites.create.{$site2->id}"));
+        $this->assertFalse($john->can("sites.edit.{$site1->id}"));
+        $this->assertFalse($john->can("sites.create.{$site2->id}"));
+        $this->assertFalse($john->can('sites.view'));
     }
 }
