@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
 
-        $john->givePermissionTo('sites');
+        $john->assignRole('Super Admin');
         $nat->givePermissionTo('sites');
         $nobuo->givePermissionTo('sites');
     }
