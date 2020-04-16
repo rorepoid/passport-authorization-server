@@ -69,6 +69,8 @@ class SitePermissionTest extends TestCase
         $john = factory(User::class)->create();
         $simple_user = factory(User::class)->create();
 
+        $site1 = factory(Site::class)->create();
+        Permission::create(['name' => "sites.create.{$site1->id}"]);
         Role::create(['name' => 'Super Admin']);
         $john->assignRole('Super Admin');
 
@@ -80,11 +82,8 @@ class SitePermissionTest extends TestCase
         $response = $this->get(route('sites.index'));
         $response->assertForbidden();
 
-        // $this->assertTrue($john->can("sites.create.{$site1->id}"));
-
-        // $this->assertFalse($john->can("sites.create.{$site2->id}"));
-        // $this->assertFalse($john->can("sites.edit.{$site1->id}"));
-        // $this->assertFalse($john->can("sites.create.{$site2->id}"));
-        // $this->assertFalse($john->can('sites.view'));
+        $this->assertTrue($john->can("sites.create.{$site1->id}"));
+        $this->assertTrue($john->can("sites.edit.{$site1->id}"));
+        $this->assertTrue($john->can('sites.view'));
     }
 }
