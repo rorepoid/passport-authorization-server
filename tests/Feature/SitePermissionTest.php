@@ -86,4 +86,25 @@ class SitePermissionTest extends TestCase
         $this->assertTrue($john->can("sites.edit.{$site1->id}"));
         $this->assertTrue($john->can('sites.view'));
     }
+
+    public function testSiteOwnerHasAccessToCreateSitesForm()
+    {
+        $role_name = 'site owner';
+        $role = Role::create(['name' => $role_name]);
+
+        $permission = Permission::create(['name' => 'site.create']);
+        $role->givePermissionTo($permission);
+
+        $nico_owner = factory(User::class)->create();
+        $nico_owner->assignRole($role_name);
+
+        $this->actingAs($nico_owner);
+        $response = $this->get(route('sites.create'));
+        $response->assertOk();
+
+        $basic_user = factory(User::class)->create();
+        $this->actingAs($basic_user);
+        $response = $this->get(route('sites.create'));
+        $response->assertForbidden();
+    }
 }
