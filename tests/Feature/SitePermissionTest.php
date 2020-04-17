@@ -87,7 +87,7 @@ class SitePermissionTest extends TestCase
         $this->assertTrue($john->can('sites.view'));
     }
 
-    public function testSiteOwnerCanCreateSites()
+    public function testSiteOwnerHasAccessToCreateSitesForm()
     {
         $role_name = 'site owner';
         $role = Role::create(['name' => $role_name]);
