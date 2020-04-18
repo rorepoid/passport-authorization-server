@@ -17,15 +17,15 @@
                 </svg>
                 Admins and Site Owners
             </p>
-        <div class="flex text-black font-bold text-xl mb-2">{{ $site->name }}</div>
-    </div>
-    <div class="flex">
-        <button class="text-center w-32 mx-2 cursor-pointer button bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" data-toggle="modal" data-target="firstModal">
-            Ver Lista
-        </button>
-        <button class="text-center w-32 mx-2 cursor-pointer button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Nuevo +
-        </button>
+        <div class="text-black font-bold text-xl mb-2">{{ $site->name }}</div>
+        <div class="flex">
+            <button class="text-center w-32 mx-2 cursor-pointer button bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" data-toggle="modal" data-target="firstModal">
+                Ver Lista
+            </button>
+            <button class="text-center w-32 mx-2 cursor-pointer button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Nuevo +
+            </button>
+        </div>
     </div>
 </div>
 @endforeach
