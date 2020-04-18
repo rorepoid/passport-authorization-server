@@ -17,6 +17,7 @@ class CreateSitesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->foreignId('user_id')->constrained();
             $table->string('image');
             $table->timestamps();
         });
