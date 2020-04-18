@@ -23,6 +23,13 @@ Route::middleware(['auth'])->group(function () {
     Route::livewire('users', 'user.users');
     Route::livewire('profile', 'profile.profile')->name('profile');
 
+    Route::group(['middleware' => ['can:sites']], function () {
+        Route::livewire('sites', 'sites.list-sites')->name('sites.index');
+    });
+    Route::livewire('sites/create', 'sites-create')
+        ->middleware('can:site.create')
+        ->name('sites.create');
+
 
     Route::group(['layout' => 'layouts.settings', 'section' => 'setting'], function () {
         Route::livewire('settings/profile', 'settings.profile')->name('settings.profile');
