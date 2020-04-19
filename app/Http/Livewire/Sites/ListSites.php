@@ -9,6 +9,8 @@ class ListSites extends Component
 {
     public function render()
     {
-        return view('livewire.sites.list-sites', ['sites' => Site::all()]);
+        return view('livewire.sites.list-sites', [
+            'sites' => Site::whereUserId(auth()->user()->id)->get()
+        ]);
     }
 }
