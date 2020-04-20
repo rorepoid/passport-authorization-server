@@ -47,7 +47,7 @@ class SiteUserPivotTableTest extends TestCase
         $this->assertTrue(($site1->users)->contains($user));
         $this->assertTrue(($site2->users)->contains($user));
 
-        $new_user = factory(Site::class)->create();
+        $new_user = factory(User::class)->create();
         $this->assertFalse(($site1->users)->contains($new_user));
         $this->assertFalse(($site2->users)->contains($new_user));
     }
