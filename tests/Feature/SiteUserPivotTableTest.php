@@ -51,4 +51,32 @@ class SiteUserPivotTableTest extends TestCase
         $this->assertFalse(($site1->users)->contains($new_user));
         $this->assertFalse(($site2->users)->contains($new_user));
     }
+
+    public function testSiteCanBelongsToManyUsers()
+    {
+        $site = factory(Site::class)->create();
+        $user1 = factory(User::class)->create();
+        $user2 = factory(User::class)->create();
+
+        $this->assertEmpty($user1->sites);
+        $this->assertEmpty($user2->sites);
+        $this->assertEmpty($site->users);
+
+        // associate realtions
+        $site->users()->saveMany([
+            $user1, $user2
+        ]);
+        $site = $site->fresh();
+        $user1 = $user1->fresh();
+        $user2 = $user2->fresh();
+
+        $this->assertTrue(($site->users)->contains($user1));
+        $this->assertTrue(($site->users)->contains($user2));
+        $this->assertTrue(($user1->sites)->contains($site));
+        $this->assertTrue(($user2->sites)->contains($site));
+
+        $new_site = factory(Site::class)->create();
+        $this->assertFalse(($user1->sites)->contains($new_site));
+        $this->assertFalse(($user2->sites)->contains($new_site));
+    }
 }
