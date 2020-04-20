@@ -42,6 +42,6 @@ class User extends Authenticatable
 
     public function sites()
     {
-        return $this->belongsToMany('App\Site');
+        return $this->belongsToMany('App\Site')->withTimestamps();
     }
 }
