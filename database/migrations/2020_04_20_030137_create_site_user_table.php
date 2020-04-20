@@ -15,8 +15,8 @@ class CreateSiteUserTable extends Migration
     {
         Schema::create('site_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('sites');
-            $table->foreignId('site_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('site_id')->references('id')->on('sites');
             $table->timestamps();
         });
     }
