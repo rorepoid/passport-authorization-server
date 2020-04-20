@@ -29,6 +29,7 @@ class SiteUserPivotTableTest extends TestCase
         $user = factory(User::class)->create();
         $site1 = factory(Site::class)->create();
         $site2 = factory(Site::class)->create();
+
         $this->assertEmpty($site1->users);
         $this->assertEmpty($site2->users);
         $this->assertEmpty($user->sites);
@@ -41,8 +42,13 @@ class SiteUserPivotTableTest extends TestCase
         $site1 = $site1->fresh();
         $site2 = $site2->fresh();
 
-        $this->assertNotEmpty($user->sites);
-        $this->assertNotEmpty($site1->users);
-        $this->assertNotEmpty($site2->users);
+        $this->assertTrue(($user->sites)->contains($site1));
+        $this->assertTrue(($user->sites)->contains($site2));
+        $this->assertTrue(($site1->users)->contains($user));
+        $this->assertTrue(($site2->users)->contains($user));
+
+        $new_user = factory(Site::class)->create();
+        $this->assertFalse(($site1->users)->contains($new_user));
+        $this->assertFalse(($site2->users)->contains($new_user));
     }
 }
