@@ -18,13 +18,13 @@ class UpdateUserProfile extends TestCase
      *
      * @return void
      */
-    public function test_username_must_have_more_than_four_characters()
+    public function test_username_must_be_required()
     {
-        // $this->actingAs(factory(User::class)->create());
+        $this->actingAs(factory(User::class)->create());
 
-        // Livewire::test('settings.profile')
-        //     ->set(['username' => 'aaaaa'])
-        //     ->assertHasErrors(['username']);
+        Livewire::test('settings.profile')
+            ->set(['username' => ''])
+            ->assertHasErrors(['username']);
         $this->assertTrue(true);
     }
 }
