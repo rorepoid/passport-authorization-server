@@ -27,4 +27,17 @@ class UpdateUserProfile extends TestCase
             ->assertHasErrors(['username']);
         $this->assertTrue(true);
     }
+
+    public function test_username_must_be_unique()
+    {
+        factory(User::class)->create([
+            'username' => 'test',
+        ]);
+        $this->actingAs(factory(User::class)->create());
+
+        Livewire::test('settings.profile')
+            ->set(['username' => 'test'])
+            ->assertHasErrors(['username']);
+        $this->assertTrue(true);
+    }
 }
