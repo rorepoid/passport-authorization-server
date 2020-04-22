@@ -1,7 +1,7 @@
 <div x-show.transition.in="step === 1">
     <div class="mb-5 text-center">
         <div class="mx-auto w-32 h-32 mb-2 border rounded-full bg-gray-100 mb-4 shadow-inset">
-            <img id="image" class="object-cover w-full h-32 rounded-full" src="{{ $user['avatar'] }}" alt=""/>
+            <img id="image" class="object-cover w-full h-32 rounded-full" src="{{ $avatar }}" alt=""/>
         </div>
         <form enctype="multipart/form-data">
         @csrf
@@ -30,18 +30,18 @@
         <div class="mb-2 md:mx-2">
             <label for="username" class="font-bold mb-1 text-gray-700 block">Username</label>
             <input
-                wire:model="user.username"
+                wire:model="username"
                 type="text"
                 name="username"
                 class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
                 placeholder="Enter your username...">
-            @error('user.username') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
+            @error('username') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
         </div>
         <div class="mb-2 md:mx-2">
             <label for="name" class="font-bold mb-1 text-gray-700 block">Name</label>
             <input
                 type="text"
-                value="{{ $user['name'] }}"
+                value="{{ $name }}"
                 class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
                 placeholder="Enter your name... ">
         </div>
@@ -50,10 +50,10 @@
             <label for="email" class="font-bold mb-1 text-gray-700 block">Email</label>
             <input
                 type="email"
-                wire:model="user.email"
+                wire:model="email"
                 class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
                 placeholder="Enter your email address...">
-            @error('user.email') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
+            @error('email') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
         </div>
 
     </div>

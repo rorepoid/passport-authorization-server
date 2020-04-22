@@ -9,6 +9,10 @@ class Profile extends Component
 {
 
     public $user;
+    public $name;
+    public $email;
+    public $avatar;
+    public $username;
 
     protected $listeners = [
         'updateAvatar'      => 'refreshAvatar',
@@ -21,19 +25,23 @@ class Profile extends Component
 
     public function mount()
     {
-        $this->user = auth()->user()->toArray();
+        $this->user     = auth()->user();
+        $this->name     = $this->user->name;
+        $this->email    = $this->user->email;
+        $this->avatar   = $this->user->avatar;
+        $this->username = $this->user->username;
     }
 
     public function updated($field)
     {
         $this->validateOnly($field, [
-            'user.username' => 'required|unique:users,username,'.$this->user['id'],
-            'user.email' => 'required|unique:users,email,'.$this->user['id'],
+            'username' => 'required|unique:users,username,'.$this->user->id,
+            'email' => 'required|unique:users,email,'.$this->user->id,
         ]);
     }
 
     public function refreshAvatar($url, $avatar)
     {
-        $this->user['avatar'] = $avatar;
+        $this->avatar = $avatar;
     }
 }
