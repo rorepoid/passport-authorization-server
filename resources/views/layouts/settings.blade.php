@@ -17,12 +17,12 @@
                     <div :class="{ 'md:block' : hidden, 'hidden' : hidden }" class="h-full">
                         <div
                             class="absolute md:relative w-64 md:w-full sm:block sm:h-auto h-full py-4 px-2 text-gray-900 bg-white rounded-lg text-left capitalize font-medium shadow-lg">
-                            <a href="{{ route('settings.profile') }}" a-turbolinks-action="replace">
+                            <a href="{{ route('settings.profile') }}">
                                 <button class="w-full cursor-pointer px-2 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-2">
                                     <span class="mx-2">Profile</span>
                                 </button>
                             </a>
-                            <a href="{{ route('settings.account') }}" a-turbolinks-action="replace" class="select-none">
+                            <a href="{{ route('settings.account') }}" class="select-none">
                                 <button class="w-full cursor-pointer px-2 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-2">
                                     <span class="mx-2">Account</span>
                                 </button>
