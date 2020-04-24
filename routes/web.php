@@ -20,7 +20,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('api/avatar', 'AvatarController@store')->name('avatar.store');
 
-    Route::livewire('users', 'user.users');
+    Route::livewire('users', 'user.users')->name('users');
     Route::livewire('profile', 'profile.profile')->name('profile');
 
     Route::group(['middleware' => ['can:sites']], function () {
