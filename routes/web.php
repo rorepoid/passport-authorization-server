@@ -13,32 +13,30 @@ use Laravel\Passport\Http\Controllers\ClientController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', 'HomeController@index')->name('home');
 
-    Route::post('api/avatar', 'AvatarController@store')->name('avatar.store');
-
+    // Livewire
     Route::livewire('users', 'user.users')->name('users');
     Route::livewire('profile', 'profile.profile')->name('profile');
 
+    // Site routes
     Route::group(['middleware' => ['can:sites']], function () {
         Route::livewire('sites', 'sites.list-sites')->name('sites.index');
+        Route::livewire('sites/create', 'sites-create')->middleware('can:site.create')->name('sites.create');
     });
-    Route::livewire('sites/create', 'sites-create')
-        ->middleware('can:site.create')
-        ->name('sites.create');
 
-
+    // Settings
     Route::group(['layout' => 'layouts.settings', 'section' => 'setting'], function () {
         Route::livewire('settings/profile', 'settings.profile')->name('settings.profile');
         Route::livewire('settings/account', 'settings.account')->name('settings.account');
     });
+
+    // API
+    Route::post('api/avatar', 'AvatarController@store')->name('avatar.store');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+// Redirects
 Route::redirect('settings', url('settings/profile'));
