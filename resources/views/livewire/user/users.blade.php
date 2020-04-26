@@ -10,14 +10,14 @@
                         <div class="text-purple-500">&#64;{{ $user->username }}</div>
                         <div class="text-gray-600">{{ $user->email }}</div>
                         <div class="text-gray-600">(555) 765-4321</div>
-                        <div class="border-black mt-2">
-                            <a href="/" class="mx-1 px-2 bg-gray-200 border-blue-300 border-2 rounded hover:no-underline">
+                        <div class="border-black mt-2 flex">
+                            <a href="/" class="flex-1 mx-1 px-2 bg-blue-700 text-white rounded-lg py-1 font-bold hover:no-underline hover:bg-blue-800">
                                 Ver
                             </a>
-                            <a href="/" class="mx-1 px-2 bg-gray-200 border-green-300 border-2 rounded hover:no-underline">
+                            <a href="/" class="flex-1 mx-1 px-2 bg-green-700 text-white rounded-lg py-1 font-bold hover:no-underline hover:bg-green-800">
                                 Editar
                             </a>
-                            <a href="/" class="mx-1 px-2 bg-gray-200 border-red-300 border-2 rounded hover:no-underline">
+                            <a href="/" class="flex-1 mx-1 px-2 bg-red-700 text-white rounded-lg py-1 font-bold hover:no-underline hover:bg-red-800">
                                 Eliminar
                             </a>
                         </div>
