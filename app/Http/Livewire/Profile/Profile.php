@@ -2,14 +2,20 @@
 
 namespace App\Http\Livewire\Profile;
 
+use App\User;
 use Livewire\Component;
 
 class Profile extends Component
 {
-    public $name = '';
+    public $user;
 
     public function render()
     {
-        return view('livewire.profile.profile');
+        return view('livewire.profile.profile', ['user' => $this->user]);
+    }
+
+    public function mount(int $id = null)
+    {
+        $this->user = User::find($id) ?? auth()->user();
     }
 }
