@@ -1,0 +1,5 @@
+@extends('errors::tailwind-layout')
+@section('message', 'Internal Server Error')
+@section('code', 500)
+@section('image-src', config('errors.500.src'))
+@section('image-alt', 'Error')
