@@ -11,9 +11,15 @@
                         <div class="text-gray-600">{{ $user->email }}</div>
                         <div class="text-gray-600">(555) 765-4321</div>
                         <div class="border-black mt-2">
-                            <button class="mx-1 px-2 bg-gray-200 border-blue-300 border-2 rounded">Ver</button>
-                            <button class="mx-1 px-2 bg-gray-200 border-green-300 border-2 rounded">Editar</button>
-                            <button class="mx-1 px-2 bg-gray-200 border-red-300 border-2 rounded">Eliminar</button>
+                            <a href="/" class="mx-1 px-2 bg-gray-200 border-blue-300 border-2 rounded hover:no-underline">
+                                Ver
+                            </a>
+                            <a href="/" class="mx-1 px-2 bg-gray-200 border-green-300 border-2 rounded hover:no-underline">
+                                Editar
+                            </a>
+                            <a href="/" class="mx-1 px-2 bg-gray-200 border-red-300 border-2 rounded hover:no-underline">
+                                Eliminar
+                            </a>
                         </div>
                     </div>
                 </div>
