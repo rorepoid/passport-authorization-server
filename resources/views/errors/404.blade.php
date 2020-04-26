@@ -1,0 +1,5 @@
+@extends('errors::tailwind-layout')
+@section('message', $exception->getMessage() ?: 'Not Found')
+@section('code', 404)
+@section('image-src', config('errors.404.src'))
+@section('image-alt', 'Not Found')
