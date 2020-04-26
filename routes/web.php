@@ -23,10 +23,13 @@ Route::middleware(['auth'])->group(function () {
     Route::livewire('profile', 'profile.profile')->name('profile');
 
     // Site routes
-    Route::group(['middleware' => ['can:sites']], function () {
-        Route::livewire('sites', 'sites.list-sites')->name('sites.index');
-        Route::livewire('sites/create', 'sites-create')->middleware('can:site.create')->name('sites.create');
-    });
+    Route::livewire('sites', 'sites.list-sites')
+        ->middleware('can:site.view')
+        ->name('sites.index');
+
+    Route::livewire('sites/create', 'sites-create')
+        ->middleware('can:site.create')
+        ->name('sites.create');
 
     // Settings
     Route::group(['layout' => 'layouts.settings', 'section' => 'setting'], function () {
