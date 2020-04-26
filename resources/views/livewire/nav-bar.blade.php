@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between flex-grow">
         <div class="flex-shrink-0">
           <h1 class="text-lg font-semibold tracking-widest text-white uppercase">
-            <a href="{{ route('home') }}">{{ config('app.name', 'Laravel') }}</a>
+            <a href="{{ route('home') }}" class="hover:no-underline hover:text-white">{{ config('app.name', 'Laravel') }}</a>
           </h1>
         </div>
         <div class="mx-3 w-full">
