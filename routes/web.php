@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Livewire
     Route::livewire('users', 'user.users')->name('users');
+    Route::livewire('users/{id}', 'user.show-user')->name('users.show');
     Route::livewire('profile', 'profile.profile')->name('profile');
 
     // Sites
