@@ -16,6 +16,10 @@ class Profile extends Component
 
     public function mount(int $id = null)
     {
-        $this->user = User::find($id) ?? auth()->user();
+        $this->user = User::find($id);
+
+        if ($this->user === null) {
+            abort(404);
+        }
     }
 }
