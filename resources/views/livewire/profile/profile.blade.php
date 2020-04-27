@@ -1,6 +1,6 @@
 <div>
     <div class="w-full h-full flex flex-row flex-wrap p-3">
-        <div class="mx-auto w-2/3">
+        <div class="mx-auto w-full md:w-2/3">
         <!-- Profile Card -->
             <div class="rounded-lg shadow-lg bg-gray-800 w-full flex flex-row flex-wrap p-3 antialiased">
             <div class="md:w-1/3 w-full">
