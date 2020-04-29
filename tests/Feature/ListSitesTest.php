@@ -8,15 +8,10 @@ use Tests\TestCase;
 
 class ListSitesTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function testUnauthenticateUserCanNotEnterInSitesRouteAndIsRedirected()
     {
-        $response = $this->get('/');
+        $response = $this->get('/sites');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 }
