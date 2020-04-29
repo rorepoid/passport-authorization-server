@@ -34,5 +34,7 @@ class UsersTableSeeder extends Seeder
         $john->assignRole('Super Admin');
         $nat->givePermissionTo('sites');
         $nobuo->givePermissionTo('sites');
+
+        factory(User::class, 10)->create();
     }
 }
