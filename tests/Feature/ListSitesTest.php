@@ -45,10 +45,11 @@ class ListSitesTest extends TestCase
     public function testUserCanSeeAllSitesInSitesRouteIfIsAdmin()
     {
         $this->actingAs(factory(User::class)->create());
-        factory(Site::class, 5)->create();
-        $sites =Site::all();
         Role::findOrCreate('Super Admin');
         auth()->user()->assignRole('Super Admin');
+
+        $sites = factory(Site::class, 5)->create();
+
         foreach($sites as $site) {
             Livewire::test(ListSites::class)
             ->assertStatus(200)
