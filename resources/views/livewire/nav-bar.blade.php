@@ -31,12 +31,12 @@
           </div>
         </div>
       </div>
-      <div class="hidden lg:block">
-        <div class="flex items-center ml-4 md:ml-6">
-          <div @click.away="open = false" class="relative ml-3" x-data="{ open: false }">
+      <div class="block">
+        <div class="flex items-center">
+          <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <div>
               <button @click="open = !open" class="flex items-center max-w-xs text-sm text-white rounded-full focus:outline-none focus:shadow-solid" id="user-menu" aria-label="User menu" aria-haspopup="true" x-bind:aria-expanded="open">
-                <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->avatar }}" alt="" />
+                <img class="w-10 h-10 rounded-full" src="{{ auth()->user()->avatar }}" alt="" />
               </button>
             </div>
             <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opaity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
