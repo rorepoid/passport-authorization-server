@@ -3,7 +3,7 @@
 @section('content')
 <div class="h-full">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-    <div class="bg-blue-800 h-full container">
+    <div class="bg-blue-800 container">
         <div class="w-full h-full flex flex-wrap">
             <div class="sm:py-4 w-64 sm:h-auto ">
                 <div x-data="{ hidden: true }">
