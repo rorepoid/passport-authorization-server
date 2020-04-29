@@ -56,4 +56,24 @@ class ListSitesTest extends TestCase
             ->assertSee($site->name);
         }
     }
+
+    public function testUserCanNotSeeExternalSitesIfIsNotAdmin()
+    {
+        $this->actingAs(factory(User::class)->create());
+
+        $external_sites = factory(Site::class, 5)->create();
+        $own_sites = factory(Site::class, 2)->create([
+            'user_id' => auth()->user()->id,
+        ]);
+
+        foreach($own_sites as $site) {
+            Livewire::test(ListSites::class)
+            ->assertSee($site->name);
+        }
+
+        foreach($external_sites as $site) {
+            Livewire::test(ListSites::class)
+            ->assertDontSee($site->name);
+        }
+    }
 }
