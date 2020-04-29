@@ -10,7 +10,7 @@ class Users extends Component
     public function render()
     {
         return view('livewire.user.users', [
-            'users' => User::all()
+            'users' => User::paginate(12)
         ]);
     }
 }
