@@ -1,4 +1,4 @@
-<div class="container">
+<div class="flex flex-col justify-center">
     <div class="flex justify-center">
         {{ $users->links() }}
     </div>
