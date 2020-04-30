@@ -1,6 +1,11 @@
 <div class="flex flex-col justify-center">
-    <div class="flex justify-center">
-        {{ $users->links() }}
+    <div class="p-3">
+        <span class="flex justify-center mb-1 text-gray-700 font-bold">
+            Page {{ $users->currentPage() }}
+        </span>
+        <div class="flex justify-center">
+            {{ $users->links() }}
+        </div>
     </div>
     <div class="flex items-center justify-center">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -29,7 +34,12 @@
             @endforeach
         </div>
     </div>
-    <div class="flex justify-center">
-        {{ $users->links() }}
+    <div class="p-3">
+        <span class="flex justify-center mb-1 text-gray-700 font-bold">
+            Page {{ $users->currentPage() }}
+        </span>
+        <div class="flex justify-center">
+            {{ $users->links() }}
+        </div>
     </div>
 </div>
