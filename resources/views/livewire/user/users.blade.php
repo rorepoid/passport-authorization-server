@@ -1,5 +1,7 @@
 <div class="container">
-
+    <div class="flex justify-center">
+        {{ $users->links() }}
+    </div>
     <div class="flex items-center justify-center">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             @foreach($users as $user)
@@ -26,5 +28,8 @@
                 </div>
             @endforeach
         </div>
+    </div>
+    <div class="flex justify-center">
+        {{ $users->links() }}
     </div>
 </div>
