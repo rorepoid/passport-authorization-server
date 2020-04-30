@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('background', 'bg-blue-800')
 @section('content')
-<div class="h-full flex justify-center">
+<div class="flex justify-center">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
     <div class="bg-blue-800 container">
         <div class="w-full h-full flex flex-wrap">
