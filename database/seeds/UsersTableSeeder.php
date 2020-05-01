@@ -35,6 +35,6 @@ class UsersTableSeeder extends Seeder
         $nat->givePermissionTo('sites');
         $nobuo->givePermissionTo('sites');
 
-        factory(User::class, 10)->create();
+        factory(User::class, 100)->create();
     }
 }
