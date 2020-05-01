@@ -24,13 +24,13 @@
     </div>
 
     <main class="w-full h-full">
-        <div class="text-black text-6xl font-bold container text-center">
+        <div class="text-black text-6xl font-bold text-center">
             @yield('code')
         </div>
-        <div class="text-blue-900 text-5xl container text-center">
+        <div class="text-blue-900 text-5xl text-center">
             @yield('message')
         </div>
-        <div class="text-gray-700 text-5xl container flex justify-center">
+        <div class="text-gray-700 text-5xl flex justify-center">
         <img
             src="@yield('image-src')"
             alt="@yield('image-alt')"
