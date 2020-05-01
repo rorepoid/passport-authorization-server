@@ -10,7 +10,7 @@
     <div class="flex items-center justify-center">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             @foreach($users as $user)
-                <div class="md:flex bg-white w-auto rounded-lg p-6 m-2 flex-wrap hover:shadow-2xl">
+                <div class="max-w-sm md:flex bg-white w-auto rounded-lg p-6 m-2 flex-wrap hover:shadow-2xl">
                     <a href="{{ route('users.show', ['id' => $user->id]) }}" class="w-full flex justify-center">
                         <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6 hover:shadow-2xl" src="{{ $user->avatar }}">
                     </a>
