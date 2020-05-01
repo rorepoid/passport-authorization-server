@@ -30,5 +30,7 @@ class SiteSeeder extends Seeder
             }) ?? 1,
             'image' => 'https://vignette.wikia.nocookie.net/nico-nico-douga/images/2/2f/NND.jpg/revision/latest/scale-to-width-down/340?cb=20180623023209&path-prefix=es',
         ]);
+
+        factory(Site::class, 20)->create();
     }
 }
