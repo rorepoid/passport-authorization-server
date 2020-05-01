@@ -1,9 +1,9 @@
 <div>
     <div class="rounded-lg shadow-lg bg-gray-800 w-full flex flex-row flex-wrap p-3 antialiased">
-        <div class="md:w-1/3 w-full">
-            <img class="rounded-lg shadow-lg antialiased" src="{{ $user->avatar }}">
+        <div class="w-1/3">
+            <img class="w-10/12 rounded-lg shadow-lg antialiased" src="{{ $user->avatar }}">
         </div>
-        <div class="md:w-2/3 w-full px-3 flex flex-row flex-wrap">
+        <div class="w-2/3 px-3 flex flex-row flex-wrap">
             <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
                 <div class="text-2xl text-white leading-tight">
                     <span>{{ $user->name }}</span>
