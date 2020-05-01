@@ -23,7 +23,7 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
             <li class="">
-                <a class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 select-none hover:bg-gray-200"
+                <a class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 select-none hover:bg-gray-200 font-bold"
                     href="{{ $paginator->nextPageUrl() }}"
                     rel="next"
                     aria-label="@lang('pagination.next')">
@@ -33,7 +33,7 @@
             @else
             <li aria-disabled="true" aria-label="@lang('pagination.next')">
                 <span
-                    class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-900 border-r-0 select-none"
+                    class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-900 border-r-0 select-none font-bold"
                     aria-hidden="true"
                 >Next</span>
             </li>
