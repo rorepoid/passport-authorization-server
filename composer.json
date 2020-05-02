@@ -16,6 +16,7 @@
         "laravel/passport": "^8.4",
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^1.0",
+        "predis/predis": "^1.1",
         "shipping-docker/vessel": "^5.0",
         "spatie/laravel-permission": "^3.11"
     },
