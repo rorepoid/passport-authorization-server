@@ -15,7 +15,8 @@ class ListSitesTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testUnauthenticateUserCanNotEnterInSitesRouteAndIsRedirected()
+    /** @test */
+    public function it_returns_302_status_when_unauthenticated_user_goes_to_site_list_route()
     {
         $response = $this->get('/sites');
 
