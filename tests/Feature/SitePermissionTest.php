@@ -67,7 +67,6 @@ class SitePermissionTest extends TestCase
     public function testAdminHasPermissionToEverything()
     {
         $john = factory(User::class)->create();
-        $simple_user = factory(User::class)->create();
 
         $site1 = factory(Site::class)->create();
         Permission::create(['name' => "sites.create.{$site1->id}"]);
@@ -77,10 +76,6 @@ class SitePermissionTest extends TestCase
         $this->actingAs($john);
         $response = $this->get(route('sites.index'));
         $response->assertOk();
-
-        $this->actingAs($simple_user);
-        $response = $this->get(route('sites.index'));
-        $response->assertForbidden();
 
         $this->assertTrue($john->can("sites.create.{$site1->id}"));
         $this->assertTrue($john->can("sites.edit.{$site1->id}"));

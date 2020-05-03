@@ -22,13 +22,14 @@ class ListSitesTest extends TestCase
         $response->assertStatus(302);
     }
 
-    public function testReturn403ToAccessToSitesRouteIfUserDoNotHavePermission()
+    /** @test */
+    public function it_returns_200_status_when_authenticated_user_goes_to_site_list_route()
     {
         $this->actingAs(factory(User::class)->create());
 
         $response = $this->get('/sites');
 
-        $response->assertStatus(403);
+        $response->assertStatus(200);
     }
 
     public function testReturn200ToAccessToSitesRouteIfUserIsAdmin()
