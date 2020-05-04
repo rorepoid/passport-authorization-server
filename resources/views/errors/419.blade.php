@@ -1,0 +1,5 @@
+@extends('errors::tailwind-layout')
+@section('message', $exception->getMessage() ?: 'Page Expired')
+@section('code', 419)
+@section('image-src', config('errors.419.src'))
+@section('image-alt', 'Page Expired')
