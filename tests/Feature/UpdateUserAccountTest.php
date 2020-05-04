@@ -11,7 +11,7 @@ class UpdateUserAccountTest extends TestCase
     /** @test */
     public function it_returns_redirect_to_login_instead_of_account_view_if_user_is_not_authenticated()
     {
-        $response = $this->get('/');
+        $response = $this->get(route('settings.account'));
 
         $response->assertStatus(302);
         $response->assertRedirect(route('login'));
