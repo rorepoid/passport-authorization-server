@@ -28,6 +28,5 @@ class UpdateUserAccountTest extends TestCase
         $response = $this->get(route('settings.account'));
 
         $response->assertOk();
-
     }
 }
