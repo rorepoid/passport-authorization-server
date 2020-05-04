@@ -8,15 +8,12 @@ use Tests\TestCase;
 
 class UpdateUserAccountTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    /** @test */
+    public function it_returns_redirect_to_login_instead_of_account_view_if_user_is_not_authenticated()
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
+        $response->assertRedirect(route('login'));
     }
 }
