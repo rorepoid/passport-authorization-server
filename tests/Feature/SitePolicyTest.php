@@ -30,6 +30,19 @@ class SitePolicyTest extends TestCase
         $this->assertTrue($result);
     }
 
+    /** @test */
+    public function guest_cannot_update_sites(Type $var = null)
+    {
+        // Arrange
+        $site = factory(Site::class)->create();
+
+        // Act
+        $result = Gate::allows('update-site', $site);
+
+        // Assert
+        $this->assertFalse($result);
+    }
+
     public function createAdmin()
     {
         $user = factory(User::class)->create();
