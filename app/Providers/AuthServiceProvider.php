@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\{Site, User};
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
