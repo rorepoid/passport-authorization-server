@@ -31,7 +31,7 @@ class SitePolicyTest extends TestCase
     }
 
     /** @test */
-    public function guest_cannot_update_sites(Type $var = null)
+    public function guest_cannot_update_sites()
     {
         // Arrange
         $site = factory(Site::class)->create();
