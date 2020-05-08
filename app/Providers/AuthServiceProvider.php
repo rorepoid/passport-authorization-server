@@ -31,6 +31,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('Super Admin') ? true : null;
         });
 
+        Gate::define('update-site', function (User $user, Site $site) {
+            return $user->id === $site->user_id;
+        });
+
         Passport::routes();
 
         Passport::tokensExpireIn(now()->addSeconds(15));
