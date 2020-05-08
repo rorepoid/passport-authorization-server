@@ -60,6 +60,25 @@ class SitePolicyTest extends TestCase
         $this->assertTrue($result);
     }
 
+    /** @test */
+    public function user_cannot_update_non_own_sites()
+    {
+        // Arrange
+        $user = $this->createUser();
+
+        $this->be($user);
+
+        $site = $this->createSite([
+            'user_id' => $user->id + 1,
+        ]);
+
+        // Act
+        $result = Gate::allows('update-site', $site);
+
+        // Assert
+        $this->assertFalse($result);
+    }
+
     public function createUser(array $columns = [])
     {
         return factory(User::class)->create($columns);
