@@ -14,7 +14,7 @@ class SitePolicyTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function admins_can_update_sites()
+    public function admins_can_update_sites()
     {
         // Arrange
         $admin = $this->createAdmin();
