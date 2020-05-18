@@ -20,7 +20,6 @@
                         </a>
                         <div class="text-purple-500">&#64;{{ $user->username }}</div>
                         <div class="text-gray-600">{{ $user->email }}</div>
-                        <div class="text-gray-600">(555) 765-4321</div>
                         <div class="border-black mt-2 flex">
                             <a href="/" class="flex-1 mx-1 px-3 bg-green-700 text-white rounded-md py-1 font-medium hover:no-underline hover:bg-green-800">
                                 Manage
