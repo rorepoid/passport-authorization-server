@@ -13,7 +13,7 @@ use Laravel\Passport\Http\Controllers\ClientController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['register' => false, 'reset' => false]);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
