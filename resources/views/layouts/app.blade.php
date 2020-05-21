@@ -24,12 +24,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="@yield('background', 'bg-gray-300') w-screen h-screen overflow-x-hidden">
-    <div id="app">
-    </div>
 
     <livewire:nav-bar>
 
-    <main class="w-full h-full">
+    <main id="app" class="w-full h-full">
         @yield('content')
     </main>
 
