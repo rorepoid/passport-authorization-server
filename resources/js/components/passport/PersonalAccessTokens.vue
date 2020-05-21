@@ -62,7 +62,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -81,7 +80,8 @@
                     name: '',
                     scopes: [],
                     errors: []
-                }
+                },
+                showModal: false
             };
         },
 
@@ -137,6 +137,13 @@
              */
             showCreateTokenForm() {
                 this.showModal = true;
+            },
+
+            /**
+             * Hide the form for creating new tokens.
+             */
+            hideCreateTokenForm() {
+                this.showModal = false;
             },
 
             /**
