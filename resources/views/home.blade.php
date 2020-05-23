@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
+<div x-data="personalAccessTokens()">
     <div class="lg:w-1/2">
         <div class="bg-blue-700 p-3 rounded-t-md">
             <div >
@@ -11,13 +11,14 @@
                             Personal Access Tokens
                         </span>
                     </div>
-                    <div class="col-span-1 flex sm:flex-row-reverse">
+                    <div x-data="modal()" class="col-span-1 flex sm:flex-row-reverse">
                         <button
                         class="flex-row-reverse w-full sm:w-auto text-white bg-green-700 p-2 rounded-md border-black"
                         tabindex="-1"
                         @click="open">
                             Create New Token
                         </button>
+                        <livewire:oauth.create-personal-access-token>
                     </div>
                 </div>
             </div>
@@ -58,6 +59,13 @@
 </div>
 
 <script>
+    function personalAccessTokens(){
+        return {
+            data: {},
+            modal: modal(),
+        }
+    }
+
     function modal() {
         return {
             show: false,
