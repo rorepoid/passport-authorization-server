@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div x-data="dropdown()">
+<div x-data="modal()">
     <button x-on:click="open">Open</button>
     <livewire:oauth.create-personal-access-token>
 </div>
 <script>
-    function dropdown() {
+    function modal() {
         return {
             show: false,
             open() { this.show = true },
