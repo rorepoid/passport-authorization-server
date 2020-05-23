@@ -22,15 +22,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-    .modal {
-      transition: opacity 0.25s ease;
-    }
-    body.modal-active {
-      overflow-x: hidden;
-      overflow-y: visible !important;
-    }
-  </style>
 </head>
 
 </head>
