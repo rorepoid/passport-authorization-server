@@ -29,7 +29,9 @@
 
     <livewire:nav-bar>
 
-    <main id="app" class="w-full h-full">
+    <div id="app"></div>
+
+    <main class="w-full h-full">
         @yield('content')
     </main>
 
