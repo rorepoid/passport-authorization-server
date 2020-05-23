@@ -138,9 +138,7 @@
 
                                 <!-- Modal Actions -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                                    <button type="button" class="btn btn-primary" @click="store">
+                                    <button type="button" class="bg-blue-600 rounded-lg px-3 p-y-2 text-white font-bold" @click="store">
                                         Create
                                     </button>
                                 </div>
