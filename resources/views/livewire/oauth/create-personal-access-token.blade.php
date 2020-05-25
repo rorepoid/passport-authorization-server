@@ -31,12 +31,15 @@
                 </div>
 
                 <!--Body-->
-                <p>Modal content can go here</p>
-                <p>...</p>
-                <p>...</p>
-                <p>...</p>
-                <p>...</p>
-
+                <div class="mb-2 md:mx-2">
+                    <label for="name" class="font-bold mb-1 text-gray-700 block select-none">Name</label>
+                    <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        class="w-full px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
+                        placeholder="Enter name...">
+                    </div>
                 <!--Footer-->
                 <div class="flex justify-end pt-2">
                 <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button>
