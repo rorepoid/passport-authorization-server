@@ -38,7 +38,8 @@
                         type="text"
                         name="name"
                         class="w-full px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
-                        placeholder="Enter name...">
+                        placeholder="Enter name..."
+                        x-ref="tokenName">
                     </div>
                 <!--Footer-->
                 <div class="flex justify-end pt-2">

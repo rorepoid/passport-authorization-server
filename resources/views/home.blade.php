@@ -15,7 +15,10 @@
                         <button
                         class="flex-row-reverse w-full sm:w-auto text-white bg-green-700 p-2 rounded-md border-black"
                         tabindex="-1"
-                        @click="open">
+                        @click="
+                            open()
+                            $nextTick(()=>$refs.tokenName.focus())
+                        ">
                             Create New Token
                         </button>
                         <livewire:oauth.create-personal-access-token>
