@@ -46,18 +46,21 @@
                 </thead>
 
                 <tbody>
-                    <tr v-for="token in tokens" class="bg-gray-400 border-8 border-gray-600">
+                <template x-for="(token, index) in data.tokens" :key="index">
+                    <tr class="bg-gray-400 border-8 border-gray-600">
                         <!-- Client Name -->
-                        <td class="text-lg px-4 py-2">
+                        <td class="text-lg px-4 py-2" x-text="token.name">
                         </td>
 
                         <!-- Delete Button -->
                         <td class="px-4 py-2">
-                            <button class="bg-red-700 rounded px-3 text-white" @click="revoke(token)">
-                                Delete
+                            <button class="bg-red-700 rounded px-3 text-white"">
+                            Delete
                             </button>
                         </td>
                     </tr>
+                </template>
+
                 </tbody>
             </table>
         </div>
@@ -82,7 +85,6 @@
             getTokens() {
                 axios.get('/oauth/personal-access-tokens')
                     .then(response => {
-                        console.log(response.data);
                         this.data.tokens = response.data;
                     });
             },
