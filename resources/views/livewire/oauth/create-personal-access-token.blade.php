@@ -39,6 +39,7 @@
                         name="name"
                         class="w-full px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
                         placeholder="Enter name..."
+                        autocomplete="off"
                         x-ref="tokenName">
                     </div>
                 <!--Footer-->
