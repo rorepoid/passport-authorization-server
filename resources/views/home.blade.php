@@ -29,12 +29,12 @@
 
         <div class="bg-gray-300 p-3 rounded-b-md">
             <!-- No Tokens Notice -->
-            <p v-if="tokens.length === 0">
+            <p x-show="data.tokens.length === 0">
                 You have not created any personal access tokens.
             </p>
 
             <!-- Personal Access Tokens -->
-            <table class="w-full" v-if="tokens.length > 0">
+            <table class="w-full" x-show="data.tokens.length > 0">
                 <thead>
                     <tr>
                         <th class="px-4 py-2">Name</th>
@@ -64,7 +64,9 @@
 <script>
     function personalAccessTokens(){
         return {
-            data: {},
+            data: {
+                tokens: [],
+            },
             modal: modal(),
         }
     }
