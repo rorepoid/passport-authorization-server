@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div x-data="personalAccessTokens()">
+<div
+    x-data="personalAccessTokens()"
+    x-init="getTokens"
+>
     <div class="lg:w-1/2">
         <div class="bg-blue-700 p-3 rounded-t-md">
             <div >
@@ -75,6 +78,13 @@
                     scopes: [],
                     errors: []
                 },
+            },
+            getTokens() {
+                axios.get('/oauth/personal-access-tokens')
+                    .then(response => {
+                        console.log(response.data);
+                        this.data.tokens = response.data;
+                    });
             },
             modal: modal(),
         }
