@@ -54,7 +54,7 @@
 
                             <!-- Delete Button -->
                             <td class="px-4 py-2">
-                                <button class="bg-red-700 rounded px-3 text-white">
+                                <button class="bg-red-700 rounded px-3 text-white" @click="revoke(token)">
                                     Delete
                                 </button>
                             </td>
@@ -86,6 +86,12 @@
                     axios.get('/oauth/personal-access-tokens')
                         .then(response => {
                             this.data.tokens = response.data;
+                        });
+                },
+                revoke(token) {
+                    axios.delete('/oauth/personal-access-tokens/' + token.id)
+                        .then(response => {
+                            this.getTokens();
                         });
                 },
                 modal: modal(),
