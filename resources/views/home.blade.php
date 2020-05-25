@@ -65,7 +65,16 @@
     function personalAccessTokens(){
         return {
             data: {
+                accessToken: null,
+
                 tokens: [],
+                scopes: [],
+
+                form: {
+                    name: '',
+                    scopes: [],
+                    errors: []
+                },
             },
             modal: modal(),
         }
