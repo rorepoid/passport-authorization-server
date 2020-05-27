@@ -42,6 +42,7 @@
                             id="name"
                             type="text"
                             name="name"
+                            x-model="form.name"
                             class="w-full px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
                             placeholder="Enter name..."
                             autocomplete="off"
@@ -51,6 +52,7 @@
                     <div class="flex justify-end pt-2">
                         <button
                             class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
+                            @click="store"
                         >Create
                         </button>
                     </div>

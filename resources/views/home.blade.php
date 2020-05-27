@@ -104,6 +104,32 @@
                 isOpen() {
                     return this.showFormModal === true
                 },
+                store() {
+                    this.accessToken = null;
+
+                    this.form.errors = [];
+
+                    axios.post('/oauth/personal-access-tokens', this.form)
+                            .then(response => {
+                                this.form.name = '';
+                                this.form.scopes = [];
+                                this.form.errors = [];
+
+                                this.tokens.push(response.data.token);
+
+                                this.showAccessToken(response.data.accessToken);
+                            })
+                            .catch(error => {
+                                if (typeof error.response.data === 'object') {
+                                    this.form.errors = _.flatten(_.toArray(error.response.data.errors));
+                                } else {
+                                    this.form.errors = ['Something went wrong. Please try again.'];
+                                }
+                            });
+                },
+                showAccessToken(accessToken) {
+                    // TODO
+                }
             }
         }
     </script>
