@@ -99,7 +99,8 @@
                     this.showFormModal = true
                 },
                 close() {
-                    this.showFormModal = false
+                    this.showFormModal = false;
+                    this.accessToken = null;
                 },
                 isOpen() {
                     return this.showFormModal === true
@@ -128,7 +129,11 @@
                             });
                 },
                 showAccessToken(accessToken) {
-                    // TODO
+                    this.accessToken = accessToken;
+                },
+                copyToClipboard() {
+                    document.querySelector('#accessToken').select();
+                    document.execCommand("copy")
                 }
             }
         }
