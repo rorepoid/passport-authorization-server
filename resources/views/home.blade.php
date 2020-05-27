@@ -75,12 +75,6 @@
 
                     tokens: [],
                     scopes: [],
-
-                    form: {
-                        name: '',
-                        scopes: [],
-                        errors: []
-                    },
                 },
                 getTokens() {
                     axios.get('/oauth/personal-access-tokens')
@@ -100,6 +94,11 @@
 
         function modal() {
             return {
+                form: {
+                    name: '',
+                    scopes: [],
+                    errors: []
+                },
                 show: false,
                 open() {
                     this.show = true
