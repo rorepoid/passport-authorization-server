@@ -14,7 +14,7 @@
                             Personal Access Tokens
                         </span>
                         </div>
-                        <div x-data="modal()" class="col-span-1 flex sm:flex-row-reverse">
+                        <div class="col-span-1 flex sm:flex-row-reverse">
                             <button
                                 class="flex-row-reverse w-full sm:w-auto text-white bg-green-700 p-2 rounded-md border-black"
                                 tabindex="-1"
@@ -32,12 +32,12 @@
 
             <div class="bg-gray-300 p-3 rounded-b-md">
                 <!-- No Tokens Notice -->
-                <p x-show="data.tokens.length === 0">
+                <p x-show="tokens.length === 0">
                     You have not created any personal access tokens.
                 </p>
 
                 <!-- Personal Access Tokens -->
-                <table class="w-full" x-show="data.tokens.length > 0">
+                <table class="w-full" x-show="tokens.length > 0">
                     <thead>
                     <tr>
                         <th class="px-4 py-2">Name</th>
@@ -46,7 +46,7 @@
                     </thead>
 
                     <tbody>
-                    <template x-for="(token, index) in data.tokens" :key="index">
+                    <template x-for="(token, index) in tokens" :key="index">
                         <tr class="bg-gray-400 border-8 border-gray-600">
                             <!-- Client Name -->
                             <td class="text-lg px-4 py-2" x-text="token.name">
@@ -70,16 +70,23 @@
     <script>
         function personalAccessTokens() {
             return {
-                data: {
-                    accessToken: null,
+                accessToken: null,
 
-                    tokens: [],
+                tokens: [],
+                scopes: [],
+
+                form: {
+                    name: '',
                     scopes: [],
+                    errors: []
                 },
+
+                showFormModal: false,
+
                 getTokens() {
                     axios.get('/oauth/personal-access-tokens')
                         .then(response => {
-                            this.data.tokens = response.data;
+                            this.tokens = response.data;
                         });
                 },
                 revoke(token) {
@@ -88,26 +95,14 @@
                             this.getTokens();
                         });
                 },
-                modal: modal(),
-            }
-        }
-
-        function modal() {
-            return {
-                form: {
-                    name: '',
-                    scopes: [],
-                    errors: []
-                },
-                show: false,
                 open() {
-                    this.show = true
+                    this.showFormModal = true
                 },
                 close() {
-                    this.show = false
+                    this.showFormModal = false
                 },
                 isOpen() {
-                    return this.show === true
+                    return this.showFormModal === true
                 },
             }
         }
