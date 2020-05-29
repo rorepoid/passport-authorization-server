@@ -81,7 +81,7 @@
                         <div class="flex justify-end pt-2">
                             <button
                                 class="modal-close px-4 bg-teal-500 p-3 rounded-lg text-white hover:bg-teal-600"
-                                @click="accessToken = ''"
+                                @click="accessToken = null"
                             >Create another new Token
                             </button>
                         </div>
