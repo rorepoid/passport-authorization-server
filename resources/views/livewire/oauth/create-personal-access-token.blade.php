@@ -53,8 +53,11 @@
                         <!--Footer-->
                         <div class="flex justify-end pt-2">
                             <button
-                                class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
                                 @click="store"
+                                :disabled="form.name.length < 1"
+                                class="modal-close bg-indigo-500 px-4 p-3 rounded-lg text-white"
+                                :class="{'opacity-50 cursor-not-allowed': form.name.length < 1,
+                                         'hover:bg-indigo-400': form.name.length > 1}"
                             >Create
                             </button>
                         </div>

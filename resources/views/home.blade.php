@@ -106,6 +106,10 @@
                     return this.showFormModal === true
                 },
                 store() {
+                    if (! this.isValidForm() ) {
+                        return;
+                    }
+
                     this.accessToken = null;
 
                     this.form.errors = [];
@@ -134,6 +138,9 @@
                 copyToClipboard() {
                     document.querySelector('#accessToken').select();
                     document.execCommand("copy")
+                },
+                isValidForm() {
+                    return this.form.name.length > 1;
                 }
             }
         }
