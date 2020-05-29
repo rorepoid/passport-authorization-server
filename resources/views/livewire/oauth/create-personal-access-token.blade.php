@@ -78,6 +78,14 @@
                                 x-text="accessToken"
                                 rows="10"
                             ></textarea>
+                            <!--Footer-->
+                            <div class="flex justify-end pt-2">
+                                <button
+                                    class="modal-close px-4 bg-teal-500 p-3 rounded-lg text-white hover:bg-teal-600"
+                                    @click="accessToken = ''"
+                                >Create another new Token
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
