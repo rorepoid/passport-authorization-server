@@ -60,32 +60,30 @@
                         </div>
                     </div>
                     <div x-show="accessToken">
-                        <div>
-                            <p class="font-mono font-bold text-sm text-teal-600">
-                                Here is your new personal access token. This is the only time it will be shown so don't lose it!
-                                You may now use this token to make API requests.
-                            </p>
+                        <p class="font-mono font-bold text-sm text-teal-600">
+                            Here is your new personal access token. This is the only time it will be shown so don't lose it!
+                            You may now use this token to make API requests.
+                        </p>
+                        <button
+                            @click="copyToClipboard()"
+                            class="font-serif text-gray-700 rounded-lg bg-gray-200 px-2 my-3 border-2 border-black hover:bg-gray-700 hover:text-white"
+                            :class="{accessToken}"
+                        >Copy to Clipboard</button>
+                        <textarea
+                            name="accessToken"
+                            id="accessToken"
+                            readonly="readonly"
+                            class="bg-gray-300 w-full"
+                            x-text="accessToken"
+                            rows="10"
+                        ></textarea>
+                        <!--Footer-->
+                        <div class="flex justify-end pt-2">
                             <button
-                                @click="copyToClipboard()"
-                                class="font-serif text-gray-700 rounded-lg bg-gray-200 px-2 my-3 border-2 border-black hover:bg-gray-700 hover:text-white"
-                                :class="{accessToken}"
-                            >Copy to Clipboard</button>
-                            <textarea
-                                name="accessToken"
-                                id="accessToken"
-                                readonly="readonly"
-                                class="bg-gray-300 w-full"
-                                x-text="accessToken"
-                                rows="10"
-                            ></textarea>
-                            <!--Footer-->
-                            <div class="flex justify-end pt-2">
-                                <button
-                                    class="modal-close px-4 bg-teal-500 p-3 rounded-lg text-white hover:bg-teal-600"
-                                    @click="accessToken = ''"
-                                >Create another new Token
-                                </button>
-                            </div>
+                                class="modal-close px-4 bg-teal-500 p-3 rounded-lg text-white hover:bg-teal-600"
+                                @click="accessToken = ''"
+                            >Create another new Token
+                            </button>
                         </div>
                     </div>
                 </div>
