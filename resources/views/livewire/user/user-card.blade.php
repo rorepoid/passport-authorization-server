@@ -4,7 +4,7 @@
             <img class="sm:w-10/12 rounded-lg shadow-lg antialiased" src="{{ $user->avatar }}">
         </div>
         <div class="w-2/3 px-3 flex flex-row flex-wrap">
-            <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
+            <div class="w-full text-right text-gray-700 font-semibold pt-3 md:pt-0">
                 <div class="text-2xl text-white leading-tight">
                     <span>{{ $user->name }}</span>
                 </div>
