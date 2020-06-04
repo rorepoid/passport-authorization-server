@@ -74,7 +74,10 @@
                         <div class="flex justify-end pt-2">
                             <button
                                 class="modal-close px-4 bg-teal-500 p-3 rounded-lg text-white hover:bg-teal-600"
-                                @click="accessToken = null"
+                                @click="
+                                    accessToken = null
+                                    $nextTick(()=>$refs.tokenName.focus())
+                                "
                             >Create another new Token
                             </button>
                         </div>
