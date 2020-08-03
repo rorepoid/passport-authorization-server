@@ -80,7 +80,6 @@
             }
         ).then(response => {
             url = response.data.url;
-            console.log(url);
             livewire.emit('updateAvatar', url);
         })
     });

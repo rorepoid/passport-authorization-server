@@ -40,8 +40,8 @@ class Profile extends Component
         ]);
     }
 
-    public function refreshAvatar($url, $avatar)
+    public function refreshAvatar($url)
     {
-        $this->avatar = $avatar;
+        $this->avatar = $url;
     }
 }
