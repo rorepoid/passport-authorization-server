@@ -11,6 +11,6 @@ $factory->define(Site::class, function (Faker $faker) {
         'name' => $faker->company,
         'description' => $faker->text(5),
         'user_id' => (factory(User::class)->create())->id,
-        'image' => "https://i.picsum.photos/id/{$faker->numberBetween(10,20)}/200/300.jpg",
+        'image' => "https://picsum.photos/id/{$faker->numberBetween(10,20)}/200/300.jpg",
     ];
 });
