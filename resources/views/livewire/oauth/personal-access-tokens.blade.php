@@ -1,8 +1,8 @@
-<div
+<div class="flex justify-center w-screen"
     x-data="personalAccessTokens()"
     x-init="getTokens"
 >
-    <div class="lg:w-1/2">
+    <div class="w-full sm:max-w-lg lg:w-1/2 p-3">
         <div class="bg-blue-700 p-3 rounded-t-md">
             <div>
                 <div class="grid sm:grid-cols-2">
