@@ -29,12 +29,12 @@
 
         <div class="bg-gray-300 p-3 rounded-b-md">
             <!-- No Tokens Notice -->
-            <p x-show="tokens.length === 0">
+            <p x-show="hasResponse && tokens.length === 0">
                 You have not created any personal access tokens.
             </p>
 
             <!-- Personal Access Tokens -->
-            <table class="w-full" x-show="tokens.length > 0">
+            <table class="w-full" x-show="tokens.length > 0 && hasResponse">
                 <thead>
                 <tr>
                     <th class="px-4 py-2">Name</th>
@@ -79,11 +79,13 @@
             },
 
             showFormModal: false,
+            hasResponse:false,
 
             getTokens() {
                 axios.get('/oauth/personal-access-tokens')
                     .then(response => {
                         this.tokens = response.data;
+                        this.hasResponse = true;
                     });
             },
             revoke(token) {
