@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Sites;
 
-use App\Site;
+use App\Models\Site;
 use Livewire\Component;
 
 class ListSites extends Component

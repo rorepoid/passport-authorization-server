@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Sites\ListSites;
-use \App\User;
-use \App\Site;
+use App\Models\User;
+use App\Models\Site;
 use Spatie\Permission\Models\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -77,11 +77,5 @@ class ListSitesTest extends TestCase
             Livewire::test(ListSites::class)
             ->assertDontSee($site->name);
         }
-    }
-
-    /** @test */
-    public function site_owner_can_see_only_own_sites()
-    {
-        /** TODO */
     }
 }

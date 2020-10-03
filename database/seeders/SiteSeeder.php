@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Site;
-use App\User;
+use App\Models\Site;
+use App\Models\User;
 
 class SiteSeeder extends Seeder
 {

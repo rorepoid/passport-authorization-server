@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\User;
-use App\Site;
+use App\Models\User;
+use App\Models\Site;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Spatie\Permission\Models\Permission;
@@ -96,10 +96,5 @@ class SitePermissionTest extends TestCase
         $this->actingAs($nico_owner);
         $response = $this->get(route('sites.create'));
         $response->assertOk();
-
-        $basic_user = factory(User::class)->create();
-        $this->actingAs($basic_user);
-        $response = $this->get(route('sites.create'));
-        $response->assertForbidden();
     }
 }
