@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\{Site, User};
+use App\Models\{Site, User};
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Gate;
@@ -55,7 +55,7 @@ class SitePolicyTest extends TestCase
 
         // Act
         $result = Gate::allows('update-site', $site);
-
+dump($result);
         // Assert
         $this->assertTrue($result);
     }

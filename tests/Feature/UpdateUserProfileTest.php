@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\Http\Livewire\Settings\Profile;
 use Livewire\Livewire;
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 
 class UpdateUserProfile extends TestCase
