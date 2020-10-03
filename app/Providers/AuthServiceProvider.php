@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\{Site, User};
+use App\Models\{Site, User};
+use App\Policies\SitePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
@@ -15,7 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Site' => 'App\Policies\SitePolicy',
+        Site::class => SitePolicy::class,
     ];
 
     /**

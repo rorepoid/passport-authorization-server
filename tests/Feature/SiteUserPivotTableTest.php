@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\User;
-use App\Site;
+use App\Models\User;
+use App\Models\Site;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -15,6 +15,7 @@ class SiteUserPivotTableTest extends TestCase
     public function testNewUserDoesNotBelongToAnySite()
     {
         $user = factory(User::class)->create();
+        dd($user->sites);
         $this->assertEmpty($user->sites);
     }
 

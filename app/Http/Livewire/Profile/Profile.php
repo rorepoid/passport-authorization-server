@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Profile;
 
-use App\User;
+use App\Models\User;
 use Livewire\Component;
 
 class Profile extends Component
