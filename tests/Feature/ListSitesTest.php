@@ -78,10 +78,4 @@ class ListSitesTest extends TestCase
             ->assertDontSee($site->name);
         }
     }
-
-    /** @test */
-    public function site_owner_can_see_only_own_sites()
-    {
-        /** TODO */
-    }
 }

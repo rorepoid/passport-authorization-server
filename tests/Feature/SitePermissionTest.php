@@ -96,10 +96,5 @@ class SitePermissionTest extends TestCase
         $this->actingAs($nico_owner);
         $response = $this->get(route('sites.create'));
         $response->assertOk();
-
-        $basic_user = factory(User::class)->create();
-        $this->actingAs($basic_user);
-        $response = $this->get(route('sites.create'));
-        $response->assertForbidden();
     }
 }
