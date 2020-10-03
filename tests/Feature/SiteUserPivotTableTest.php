@@ -15,7 +15,6 @@ class SiteUserPivotTableTest extends TestCase
     public function testNewUserDoesNotBelongToAnySite()
     {
         $user = factory(User::class)->create();
-        dd($user->sites);
         $this->assertEmpty($user->sites);
     }
 

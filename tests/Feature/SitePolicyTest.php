@@ -55,7 +55,7 @@ class SitePolicyTest extends TestCase
 
         // Act
         $result = Gate::allows('update-site', $site);
-dump($result);
+
         // Assert
         $this->assertTrue($result);
     }
