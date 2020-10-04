@@ -13,6 +13,8 @@
 
 - `php artisan storage:link`
 
+- `php artisan passport:keys`
+
 - `npm install`
 
 - `npm run dev`
