@@ -21,7 +21,7 @@ class SitePolicyTest extends TestCase
 
         $this->be($admin);
 
-        $site = factory(Site::class)->create();
+        $site = Site::factory()->create();
 
         // Act
         $result = Gate::allows('update-site', $site);
@@ -34,7 +34,7 @@ class SitePolicyTest extends TestCase
     public function guest_cannot_update_sites()
     {
         // Arrange
-        $site = factory(Site::class)->create();
+        $site = Site::factory()->create();
 
         // Act
         $result = Gate::allows('update-site', $site);
@@ -81,17 +81,17 @@ class SitePolicyTest extends TestCase
 
     public function createUser(array $columns = [])
     {
-        return factory(User::class)->create($columns);
+        return User::factory()->create($columns);
     }
 
     public function createSite(array $columns = [])
     {
-        return factory(Site::class)->create($columns);
+        return Site::factory()->create($columns);
     }
 
     public function createAdmin()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         Role::findOrCreate('Super Admin');
         $user->assignRole('Super Admin');
         return $user;

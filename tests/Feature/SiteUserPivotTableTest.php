@@ -14,21 +14,21 @@ class SiteUserPivotTableTest extends TestCase
 
     public function testNewUserDoesNotBelongToAnySite()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $this->assertEmpty($user->sites);
     }
 
     public function testNewSiteDoesNotBelongToAnyUser()
     {
-        $site = factory(Site::class)->create();
+        $site = Site::factory()->create();
         $this->assertEmpty($site->users);
     }
 
     public function testUserCanBelongsToManySites()
     {
-        $user = factory(User::class)->create();
-        $site1 = factory(Site::class)->create();
-        $site2 = factory(Site::class)->create();
+        $user = User::factory()->create();
+        $site1 = Site::factory()->create();
+        $site2 = Site::factory()->create();
 
         $this->assertEmpty($site1->users);
         $this->assertEmpty($site2->users);
@@ -47,16 +47,16 @@ class SiteUserPivotTableTest extends TestCase
         $this->assertTrue(($site1->users)->contains($user));
         $this->assertTrue(($site2->users)->contains($user));
 
-        $new_user = factory(User::class)->create();
+        $new_user = User::factory()->create();
         $this->assertFalse(($site1->users)->contains($new_user));
         $this->assertFalse(($site2->users)->contains($new_user));
     }
 
     public function testSiteCanBelongsToManyUsers()
     {
-        $site = factory(Site::class)->create();
-        $user1 = factory(User::class)->create();
-        $user2 = factory(User::class)->create();
+        $site = Site::factory()->create();
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
 
         $this->assertEmpty($user1->sites);
         $this->assertEmpty($user2->sites);
@@ -75,7 +75,7 @@ class SiteUserPivotTableTest extends TestCase
         $this->assertTrue(($user1->sites)->contains($site));
         $this->assertTrue(($user2->sites)->contains($site));
 
-        $new_site = factory(Site::class)->create();
+        $new_site = Site::factory()->create();
         $this->assertFalse(($user1->sites)->contains($new_site));
         $this->assertFalse(($user2->sites)->contains($new_site));
     }

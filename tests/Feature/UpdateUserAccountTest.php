@@ -23,7 +23,7 @@ class UpdateUserAccountTest extends TestCase
     /** @test */
     public function it_returns_to_account_view_if_user_is_authenticated()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
 
         $response = $this->get(route('settings.account'));
 

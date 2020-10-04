@@ -7,6 +7,7 @@ namespace Database\Factories;
 use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,20 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
-    return [
-        'username' => $faker->username,
-        'name' => $faker->name,
-        'avatar' => "https://picsum.photos/id/{$faker->numberBetween(10,20)}/200/200.jpg",
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
-    ];
-});
+class UserFactory extends Factory
+{
+    protected $model = User::class;
+
+    public function definition()
+    {    
+        return [
+            'username' => $this->faker->username,
+            'name' => $this->faker->name,
+            'avatar' => "https://picsum.photos/id/{$this->faker->numberBetween(10,20)}/200/200.jpg",
+            'email' => $this->faker->unique()->safeEmail,
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ];
+    }
+}
