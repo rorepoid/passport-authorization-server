@@ -26,7 +26,7 @@ class ListSitesTest extends TestCase
     /** @test */
     public function it_returns_200_status_when_authenticated_user_goes_to_site_list_route()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
 
         $response = $this->get('/sites');
 
@@ -35,7 +35,8 @@ class ListSitesTest extends TestCase
 
     public function testReturn200ToAccessToSitesRouteIfUserIsAdmin()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
+
         Role::findOrCreate('Super Admin');
         auth()->user()->assignRole('Super Admin');
 
@@ -46,11 +47,12 @@ class ListSitesTest extends TestCase
 
     public function testUserCanSeeAllSitesInSitesRouteIfIsAdmin()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
+
         Role::findOrCreate('Super Admin');
         auth()->user()->assignRole('Super Admin');
 
-        $sites = factory(Site::class, 5)->create();
+        $sites = Site::factory()->count(5)->create();
 
         foreach($sites as $site) {
             Livewire::test(ListSites::class)
@@ -61,10 +63,10 @@ class ListSitesTest extends TestCase
 
     public function testUserCanNotSeeExternalSitesIfIsNotAdmin()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
 
-        $external_sites = factory(Site::class, 5)->create();
-        $own_sites = factory(Site::class, 2)->create([
+        $external_sites = Site::factory()->count(5)->create();
+        $own_sites = Site::factory()->count(2)->create([
             'user_id' => auth()->user()->id,
         ]);
 

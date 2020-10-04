@@ -20,7 +20,7 @@ class UpdateUserProfile extends TestCase
      */
     public function test_username_must_be_required()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
 
         Livewire::test('settings.profile')
             ->set(['username' => ''])
@@ -30,10 +30,10 @@ class UpdateUserProfile extends TestCase
 
     public function test_username_must_be_unique()
     {
-        factory(User::class)->create([
+        User::factory()->create([
             'username' => 'test',
         ]);
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
 
         Livewire::test('settings.profile')
             ->set(['username' => 'test'])

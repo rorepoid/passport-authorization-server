@@ -20,7 +20,7 @@ class SitePermissionTest extends TestCase
      */
     public function testUserPermissionToViewCreateEditAndDeleteAnySites()
     {
-        $john = factory(User::class)->create();
+        $john = User::factory()->create();
 
         Permission::findOrCreate('sites.view,create,edit,delete.*');
         $john->givePermissionTo('sites.view,create,edit,delete.*');
@@ -45,9 +45,9 @@ class SitePermissionTest extends TestCase
      */
     public function testUserHasPermissionToOnlyCreateOneSite()
     {
-        $john = factory(User::class)->create();
-        $site1 = factory(Site::class)->create();
-        $site2 = factory(Site::class)->create();
+        $john = User::factory()->create();
+        $site1 = Site::factory()->create();
+        $site2 = Site::factory()->create();
 
         Permission::create(['name' => "sites.create.{$site1->id}"]);
         $john->givePermissionTo("sites.create.{$site1->id}");
@@ -66,9 +66,9 @@ class SitePermissionTest extends TestCase
      */
     public function testAdminHasPermissionToEverything()
     {
-        $john = factory(User::class)->create();
+        $john = User::factory()->create();
 
-        $site1 = factory(Site::class)->create();
+        $site1 = Site::factory()->create();
         Permission::create(['name' => "sites.create.{$site1->id}"]);
         Role::create(['name' => 'Super Admin']);
         $john->assignRole('Super Admin');
@@ -90,7 +90,7 @@ class SitePermissionTest extends TestCase
         $permission = Permission::create(['name' => 'site.create']);
         $role->givePermissionTo($permission);
 
-        $nico_owner = factory(User::class)->create();
+        $nico_owner = User::factory()->create();
         $nico_owner->assignRole($role_name);
 
         $this->actingAs($nico_owner);
