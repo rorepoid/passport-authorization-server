@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
     Route::livewire('sites', 'sites.list-sites')
         ->name('sites.index');
 
+    Route::livewire('sites/{id}', 'sites.show-site')
+        ->name('sites.show');
+
     Route::livewire('sites/create', 'sites-create')
         ->middleware('can:site.create')
         ->name('sites.create');
