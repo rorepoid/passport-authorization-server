@@ -24,7 +24,7 @@ class ShowSiteDetailTest extends TestCase
         $this->actingAs($user);
 
         // Act
-        $route = route('sites.show', ['id' => $site->id]);
+        $route = route('sites.show', ['site' => $site->id]);
         $response = $this->get($route);
 
         // Assert
