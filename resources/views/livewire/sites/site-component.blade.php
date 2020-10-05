@@ -18,9 +18,9 @@
             <div class="text-black font-bold text-xl truncate mb-2">{{ $site->name }}</div>
             <div class="flex">
                 @can("sites.{$site->id}.view")
-                    <button class="text-center w-32 mx-2 cursor-pointer button bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" data-toggle="modal" data-target="firstModal">
+                    <a href="{{ route('sites.show', ['site' => $site->id]) }}" class="text-center w-32 mx-2 cursor-pointer button bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
                         Details
-                    </button>
+                    </a>
                 @endcan
                 @can("sites.show.{$site->id}")
                     <button class="text-center w-32 mx-2 cursor-pointer button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

@@ -31,6 +31,9 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('can:site.create')
         ->name('sites.create');
 
+    Route::livewire('sites/{site}', 'sites.show-site')
+        ->name('sites.show');
+
     // Settings
     Route::group(['layout' => 'layouts.settings', 'section' => 'setting'], function () {
         Route::livewire('settings/profile', 'settings.profile')->name('settings.profile');
