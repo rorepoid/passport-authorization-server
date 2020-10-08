@@ -1,3 +1,15 @@
+## Requirements
+<details>
+<summary>Before installation make sure you have installed</summary>
+
+- composer
+
+- PHP >= 7.3
+
+- node
+
+</details>
+
 ## Installation
 
 - `composer install`
