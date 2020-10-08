@@ -18,3 +18,16 @@
 - `npm install`
 
 - `npm run dev`
+
+<details>
+<summary>Run in localhost</summary>
+
+- If you are using MacOS or Linux, I recommend Laravel Valet
+
+- If you are using Windows, I recommend Laragon
+
+- Else you can run the following comand instead of the previous options
+
+    - `php artisan serve`
+
+</details>
