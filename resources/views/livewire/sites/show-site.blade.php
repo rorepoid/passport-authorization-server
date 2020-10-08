@@ -12,12 +12,15 @@
             </div>
         </div>
         <div class="pt-16">
-            <div class="text-2xl font-semibold">List of users</div>
-            @forelse($site->users as $user)
-                There is a user xd
-            @empty
-                <div class="text-xl text-red-900 font-bold">This site has not any user</div>
-            @endforelse
+            <div class="text-2xl font-semibold mb-4">List of users</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                    @forelse($site->users as $user)
+                        <livewire:user.user-rectangle-card :user="$user" :key="$user->id">
+
+                    @empty
+                        <div class="text-xl text-red-900 font-bold">This site has not any user</div>
+                    @endforelse
+            </div>
         </div>
     </div>
 </div>
