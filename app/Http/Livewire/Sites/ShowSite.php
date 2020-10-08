@@ -22,7 +22,7 @@ class ShowSite extends Component
     public function mount(Site $site)
     {
         $this->site = $site;
-        $this->user = User::find($site->user_id);
+        $this->user = User::find($site->owner);
     }
 
     public function loadUsers()

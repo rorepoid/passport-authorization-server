@@ -15,4 +15,9 @@ class Site extends Model
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
+
+    public function getOwnerAttribute()
+    {
+        return $this->user_id;
+    }
 }
