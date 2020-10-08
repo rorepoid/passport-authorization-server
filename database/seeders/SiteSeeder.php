@@ -34,6 +34,9 @@ class SiteSeeder extends Seeder
         ]);
         $nico->users()->save($nobuo);
 
-        Site::factory()->count(20)->create();
+        Site::factory()
+                ->count(20)
+                ->hasUsers(20)
+                ->create();
     }
 }
