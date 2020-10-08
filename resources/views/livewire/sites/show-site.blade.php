@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="pt-16">
-            <div class="text-2xl font-semibold mb-4">List of users</div>
+            <div class="text-2xl font-semibold mb-4" wire:init="loadUsers">List of users</div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     @forelse($site->users as $user)
                         <livewire:user.user-rectangle-card :user="$user" :key="$user->id">

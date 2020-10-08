@@ -10,6 +10,7 @@ class ShowSite extends Component
 {
     public $site;
     public $user;
+    public $users;
 
     public function render()
     {
@@ -22,5 +23,10 @@ class ShowSite extends Component
     {
         $this->site = $site;
         $this->user = User::find($site->user_id);
+    }
+
+    public function loadUsers()
+    {
+        $this->users = $this->site->users;
     }
 }
