@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7dec140aad03197d6ad02c5f4c70d60",
+    "content-hash": "94ed6a46a290b1fb74c5691cbc0dbad9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2897,6 +2897,59 @@
                 "spatie"
             ],
             "time": "2020-09-16T16:47:18+00:00"
+        },
+        {
+            "name": "styde/enlighten",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StydeNet/enlighten.git",
+                "reference": "bce90caa33716cec134b22815ba7a3ada50c0043"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StydeNet/enlighten/zipball/bce90caa33716cec134b22815ba7a3ada50c0043",
+                "reference": "bce90caa33716cec134b22815ba7a3ada50c0043",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "^8.0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Styde\\Enlighten\\Providers\\EnlightenServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Styde\\Enlighten\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Duilio Palacios",
+                    "email": "duilio@styde.net"
+                },
+                {
+                    "name": "Jeffer Ochoa",
+                    "email": "jeffer.8a@gmail.com"
+                }
+            ],
+            "description": "Enlighten your APIs with auto-generated documentation",
+            "time": "2020-10-10T17:37:42+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
