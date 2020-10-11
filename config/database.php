@@ -91,6 +91,16 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'enlighten' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST_ENLIGHTEN', '127.0.0.1'),
+            'port' => env('DB_PORT_ENLIGHTEN', '3306'),
+            'database' => env('DB_DATABASE_ENLIGHTEN', ''),
+            'username' => env('DB_USERNAME_ENLIGHTEN', ''),
+            'password' => env('DB_PASSWORD_ENLIGHTEN', ''),
+         ],
+
     ],
 
     /*
