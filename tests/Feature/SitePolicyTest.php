@@ -8,10 +8,18 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
+use Styde\Enlighten\Tests\EnlightenSetup;
 
 class SitePolicyTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, EnlightenSetup;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setUpEnlighten();
+    }
 
     /** @test */
     public function admins_can_update_sites()

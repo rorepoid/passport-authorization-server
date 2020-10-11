@@ -7,10 +7,18 @@ use App\Models\Site;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Styde\Enlighten\Tests\EnlightenSetup;
 
 class SiteUserPivotTableTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, EnlightenSetup;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setUpEnlighten();
+    }
 
     public function testNewUserDoesNotBelongToAnySite()
     {

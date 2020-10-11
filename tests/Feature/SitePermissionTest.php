@@ -9,10 +9,19 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
+use Styde\Enlighten\Tests\EnlightenSetup;
 
 class SitePermissionTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, EnlightenSetup;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setUpEnlighten();
+    }
+
     /**
      * User has resource permissions of any site.
      *

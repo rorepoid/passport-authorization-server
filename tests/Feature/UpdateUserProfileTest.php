@@ -8,10 +8,18 @@ use App\Http\Livewire\Settings\Profile;
 use Livewire\Livewire;
 use App\Models\User;
 use Tests\TestCase;
+use Styde\Enlighten\Tests\EnlightenSetup;
 
 class UpdateUserProfile extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, EnlightenSetup;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setUpEnlighten();
+    }
 
     /**
      * A test to validate user username when update profile

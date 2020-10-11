@@ -7,11 +7,18 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Styde\Enlighten\Tests\EnlightenSetup;
 
 class SiteCreatorTest extends TestCase
 {
+    use RefreshDatabase, EnlightenSetup;
 
-    use RefreshDatabase;
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setUpEnlighten();
+    }
 
     /** @test */
     public function site_creator_is_added_in_site_members()

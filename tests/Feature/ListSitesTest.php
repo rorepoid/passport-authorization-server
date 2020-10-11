@@ -10,10 +10,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
+use Styde\Enlighten\Tests\EnlightenSetup;
 
 class ListSitesTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, EnlightenSetup;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setUpEnlighten();
+    }
 
     /** @test */
     public function it_returns_302_status_when_unauthenticated_user_goes_to_site_list_route()
