@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        Styde\Enlighten\Providers\EnlightenServiceProvider::class,
 
         /*
          * Application Service Providers...
