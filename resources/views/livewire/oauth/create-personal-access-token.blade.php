@@ -54,14 +54,16 @@
                     </div>
                     <div x-show="accessToken">
                         <p class="font-mono font-bold text-sm text-teal-600">
-                            Here is your new personal access token. This is the only time it will be shown so don't lose it!
+                            Here is your new personal access token. This is the only time it will be shown so don't lose
+                            it!
                             You may now use this token to make API requests.
                         </p>
                         <button
                             @click="copyToClipboard()"
                             class="font-serif text-gray-700 rounded-lg bg-gray-200 px-2 my-3 border-2 border-black hover:bg-gray-700 hover:text-white"
                             :class="{accessToken}"
-                        >Copy to Clipboard</button>
+                        >Copy to Clipboard
+                        </button>
                         <textarea
                             name="accessToken"
                             id="accessToken"

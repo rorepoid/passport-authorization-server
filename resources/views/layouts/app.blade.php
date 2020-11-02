@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @stack('metas')
+@stack('metas')
 
-    <!-- Favicon -->
+<!-- Favicon -->
     <link rel="icon" href="{{ asset('favicon.jpeg') }}" type="image/x-icon"/>
 
     <!-- CSRF Token -->
@@ -28,7 +28,7 @@
 </head>
 <body class="@yield('background', 'bg-gray-300') w-screen h-screen overflow-x-hidden">
 
-    <livewire:nav-bar>
+<livewire:nav-bar>
 
     <div id="app"></div>
 

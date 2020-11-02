@@ -12,9 +12,10 @@
                     </li>
                 @else
                     <li>
-                        <a class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 select-none hover:bg-gray-200" href="{{ $paginator->previousPageUrl() }}"
-                            rel="prev"
-                            aria-label="@lang('pagination.previous')">
+                        <a class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 select-none hover:bg-gray-200"
+                           href="{{ $paginator->previousPageUrl() }}"
+                           rel="prev"
+                           aria-label="@lang('pagination.previous')">
                             <span>Previous</span>
                         </a>
                     </li>
@@ -25,7 +26,8 @@
                     {{-- "Three Dots" Separator --}}
                     @if (is_string($element))
                         <li aria-disabled="true">
-                            <span class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 select-none hover:bg-gray-200">{{ $element }}</span>
+                            <span
+                                class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 select-none hover:bg-gray-200">{{ $element }}</span>
                         </li>
                     @endif
 
@@ -33,12 +35,14 @@
                     @if (is_array($element))
                         @foreach ($element as $page => $url)
                             @if ($page == $paginator->currentPage())
-                                <li aria-current="page" class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 bg-gray-400 select-none">
+                                <li aria-current="page"
+                                    class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 bg-gray-400 select-none">
                                     <span>{{ $page }}</span>
                                 </li>
                             @else
                                 <li>
-                                    <a class="relative block leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 hover:bg-gray-200 h-full flex content-center" href="{{ $url }}"><span class="py-2 px-3">{{ $page }}</span></a>
+                                    <a class="relative block leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 hover:bg-gray-200 h-full flex content-center"
+                                       href="{{ $url }}"><span class="py-2 px-3">{{ $page }}</span></a>
                                 </li>
                             @endif
                         @endforeach
@@ -49,9 +53,9 @@
                 @if ($paginator->hasMorePages())
                     <li class="">
                         <a class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 select-none hover:bg-gray-200"
-                            href="{{ $paginator->nextPageUrl() }}"
-                            rel="next"
-                            aria-label="@lang('pagination.next')">
+                           href="{{ $paginator->nextPageUrl() }}"
+                           rel="next"
+                           aria-label="@lang('pagination.next')">
                             <span>Next</span>
                         </a>
                     </li>
