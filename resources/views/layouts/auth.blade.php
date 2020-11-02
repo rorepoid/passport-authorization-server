@@ -19,6 +19,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="overflow-hidden">
-    @yield('content')
+@yield('content')
 </body>
 </html>

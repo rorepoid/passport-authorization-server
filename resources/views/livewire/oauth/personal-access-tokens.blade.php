@@ -1,6 +1,6 @@
 <div class="flex justify-center w-screen"
-    x-data="personalAccessTokens()"
-    x-init="getTokens"
+     x-data="personalAccessTokens()"
+     x-init="getTokens"
 >
     <div class="w-full sm:max-w-lg lg:w-1/2 p-3">
         <div class="bg-blue-700 p-3 rounded-t-md">
@@ -79,7 +79,7 @@
             },
 
             showFormModal: false,
-            hasResponse:false,
+            hasResponse: false,
 
             getTokens() {
                 axios.get('/oauth/personal-access-tokens')
@@ -105,7 +105,7 @@
                 return this.showFormModal === true
             },
             store() {
-                if (! this.isValidForm() ) {
+                if (!this.isValidForm()) {
                     return;
                 }
 
@@ -114,22 +114,22 @@
                 this.form.errors = [];
 
                 axios.post('/oauth/personal-access-tokens', this.form)
-                        .then(response => {
-                            this.form.name = '';
-                            this.form.scopes = [];
-                            this.form.errors = [];
+                    .then(response => {
+                        this.form.name = '';
+                        this.form.scopes = [];
+                        this.form.errors = [];
 
-                            this.tokens.push(response.data.token);
+                        this.tokens.push(response.data.token);
 
-                            this.showAccessToken(response.data.accessToken);
-                        })
-                        .catch(error => {
-                            if (typeof error.response.data === 'object') {
-                                this.form.errors = _.flatten(_.toArray(error.response.data.errors));
-                            } else {
-                                this.form.errors = ['Something went wrong. Please try again.'];
-                            }
-                        });
+                        this.showAccessToken(response.data.accessToken);
+                    })
+                    .catch(error => {
+                        if (typeof error.response.data === 'object') {
+                            this.form.errors = _.flatten(_.toArray(error.response.data.errors));
+                        } else {
+                            this.form.errors = ['Something went wrong. Please try again.'];
+                        }
+                    });
             },
             showAccessToken(accessToken) {
                 this.accessToken = accessToken;
