@@ -8,6 +8,8 @@ class Account extends Component
 {
     public function render()
     {
-        return view('livewire.settings.account');
+        return view('livewire.settings.account')
+            ->extends('layouts.settings')
+            ->section('setting');
     }
 }
