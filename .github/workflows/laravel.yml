@@ -47,3 +47,5 @@ jobs:
           composer install --no-interaction --ansi --no-progress --no-suggest --optimize-autoloader
       - name: Migrate database
         run: set -e && php artisan migrate --env=testing
+      - name: Test with phpunit
+        run: php artisan test --coverage-text --verbose
