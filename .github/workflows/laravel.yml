@@ -1,74 +1,49 @@
-# GitHub Action for Laravel with MySQL and Redis
-name: Testing Laravel with MySQL
+name: CI
+
 on: [push, pull_request]
+
 jobs:
-  laravel:
-    name: Laravel (PHP ${{ matrix.php-versions }})
+  tests:
+    name: Run tests
     runs-on: ubuntu-latest
-    env:
-      DB_DATABASE: laravel
-      DB_USERNAME: root
-      DB_PASSWORD: password
-      BROADCAST_DRIVER: log
-      CACHE_DRIVER: redis
-      QUEUE_CONNECTION: redis
-      SESSION_DRIVER: redis
+
     services:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: false
-          MYSQL_ROOT_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: laravel
+          MYSQL_USER: laravel
+          MYSQL_PASSWORD: secret
         ports:
-          - 3306/tcp
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-      redis:
-        image: redis
-        ports:
-          - 6379/tcp
-        options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.2', '7.3', '7.4']
+        php-versions: ['7.4', '8.0']
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup PHP, with composer and extensions
-        uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+
+      - name: Setup php
+        uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: mbstring, dom, fileinfo, mysql
+          extensions: curl, gd, intl, mbstring, openssl, pdo, pdo_mysql, tokenizer, zip
           coverage: xdebug #optional
-      - name: Start mysql service
-        run: sudo /etc/init.d/mysql start
-      - name: Get composer cache directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - name: Cache composer dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          # Use composer.json for key, if composer.lock is not committed.
-          # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-      - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist --optimize-autoloader
-      - name: Prepare the application
+
+      - name: Set environment
         run: |
-          php -r "file_exists('.env') || copy('.env.example', '.env');"
-          php artisan key:generate
-      - name: Clear Config
-        run: php artisan config:clear
-      - name: Run Migration
-        run: php artisan migrate -v
-        env:
-          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
-          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
-      - name: Test with phpunit
-        run: vendor/bin/phpunit --coverage-text
-        env:
-          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
-          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+          set -e
+          sed -i "s|^\(DB_HOST=\s*\).*$|\1127.0.0.1|" .env.testing
+          sed -i "s|^\(DB_PORT=\s*\).*$|\1${{ job.services.mysql.ports['3306'] }}|" .env.testing
+          printf "the complete .env.testing ...\n\n"
+          cat .env.testing
+      - name: Composer install
+        run: |
+          set -e
+          composer install --no-interaction --ansi --no-progress --no-suggest --optimize-autoloader
+      - name: Migrate database
+        run: set -e && php artisan migrate --env=testing
