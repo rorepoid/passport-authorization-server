@@ -25,17 +25,17 @@
 </head>
 
 </head>
-<body class="@yield('background', 'bg-gray-300') w-screen h-screen overflow-x-hidden">
+<body class="{{ $background ?? 'bg-gray-300'}} w-screen h-screen overflow-x-hidden">
 
-<livewire:nav-bar>
+    <livewire:nav-bar>
 
     <div id="app"></div>
 
     <main class="w-full h-full">
-        @yield('content')
+        {{ $slot }}
     </main>
 
     <livewire:scripts>
-
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </body>
 </html>

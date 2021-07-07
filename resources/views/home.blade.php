@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
+@component('layouts.app')
     <livewire:oauth.personal-access-tokens>
-@endsection
+@endcomponent

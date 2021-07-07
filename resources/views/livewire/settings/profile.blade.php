@@ -45,7 +45,7 @@
                 <label for="name" class="font-bold mb-1 text-gray-700 block">Name</label>
                 <input
                     type="text"
-                    value="{{ $name }}"
+                    wire:model="name"
                     class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-black text-lg"
                     placeholder="Enter your name... ">
             </div>
