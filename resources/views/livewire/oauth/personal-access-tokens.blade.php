@@ -144,8 +144,3 @@
         }
     }
 </script>
-
-@push('metas')
-    {{-- This element is to prevent cache in this component --}}
-    <meta name="turbolinks-cache-control" content="no-cache">
-@endpush

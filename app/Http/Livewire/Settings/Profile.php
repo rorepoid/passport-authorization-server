@@ -20,8 +20,10 @@ class Profile extends Component
 
     public function render()
     {
-        return view('livewire.settings.profile');
-    }
+        return view('livewire.settings.profile')
+            ->extends('layouts.settings')
+            ->section('setting');
+}
 
     public function mount()
     {

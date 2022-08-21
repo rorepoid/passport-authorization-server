@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Livewire\Profile\Profile;
+use App\Http\Livewire\Settings\Account;
+use App\Http\Livewire\Settings\Profile as SettingsProfile;
+use App\Http\Livewire\Sites\ListSites;
+use App\Http\Livewire\Sites\ShowSite;
+use App\Http\Livewire\SitesCreate;
+use App\Http\Livewire\User\Users;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Http\Controllers\ClientController;
 
@@ -16,28 +25,28 @@ use Laravel\Passport\Http\Controllers\ClientController;
 Auth::routes(['register' => false, 'reset' => false]);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
     // Livewire
-    Route::livewire('users', 'user.users')->name('users');
-    Route::livewire('users/{id}', 'profile.profile')->name('users.show');
-    Route::livewire('profile', 'profile.profile')->name('profile');
+    Route::get('users', Users::class)->name('users');
+    Route::get('users/{id}', Profile::class)->name('users.show');
+    Route::get('profile', Profile::class)->name('profile');
 
     // Sites
-    Route::livewire('sites', 'sites.list-sites')
+    Route::get('sites', ListSites::class)
         ->name('sites.index');
 
-    Route::livewire('sites/create', 'sites-create')
+    Route::get('sites/create', SitesCreate::class)
         ->middleware('can:site.create')
         ->name('sites.create');
 
-    Route::livewire('sites/{site}', 'sites.show-site')
+    Route::get('sites/{site}', ShowSite::class)
         ->name('sites.show');
 
     // Settings
-    Route::group(['layout' => 'layouts.settings', 'section' => 'setting'], function () {
-        Route::livewire('settings/profile', 'settings.profile')->name('settings.profile');
-        Route::livewire('settings/account', 'settings.account')->name('settings.account');
+    Route::group(['section' => 'setting'], function () {
+        Route::get('settings/profile', SettingsProfile::class)->name('settings.profile');
+        Route::get('settings/account', Account::class)->name('settings.account');
     });
 
     // API
